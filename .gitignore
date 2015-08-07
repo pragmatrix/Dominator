@@ -1,0 +1,7 @@
+bin/
+obj/
+/.vs/
+/_NCrunch_*/
+*.ncrunchsolution
+*.ncrunchproject
+*.user
