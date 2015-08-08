@@ -1,11 +1,13 @@
-﻿using Dominator.Net;
+﻿using System;
+using Dominator.Net;
 using Microsoft.Win32;
+using System.ServiceProcess;
 
 namespace Dominator.Windows10.Settings
 {
 	static partial class Settings
 	{
-		static ItemBuilder RegistryValue(this ItemBuilder dsl, string key, string valueName, uint dominatedValue, uint submissiveValue)
+		static ItemBuilder RegistryValue(this ItemBuilder dsl, string key, string valueName, uint dominatedValue, uint submissiveValue, DominatorState entryMissingState = DominatorState.Indetermined)
 		{
 			return dsl
 				.Setter(
@@ -14,7 +16,7 @@ namespace Dominator.Windows10.Settings
 				{
 					var value = Registry.GetValue(key, valueName, null);
 					if (!(value is int))
-						return DominatorState.Indetermined;
+						return entryMissingState;
 					var v = (uint)(int)value;
 					if (v == dominatedValue)
 						return DominatorState.Dominated;

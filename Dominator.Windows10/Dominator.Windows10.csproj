@@ -55,6 +55,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -89,7 +90,9 @@
     </Compile>
     <Compile Include="Settings\All.cs" />
     <Compile Include="Settings\Optional.cs" />
-    <Compile Include="Settings\SettingsTools.cs" />
+    <Compile Include="Settings\ServiceConfiguration.cs" />
+    <Compile Include="Settings\ServiceTools.cs" />
+    <Compile Include="Settings\RegistryTools.cs" />
     <Compile Include="Settings\Privacy.cs" />
     <Compile Include="Tools\DedicatedThreadDispatcher.cs" />
     <Compile Include="UI.cs" />

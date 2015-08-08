@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominator.Windows10", "Domi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominator.Net", "Dominator.Net\Dominator.Net.csproj", "{5510519F-6352-4690-86E5-0FBB1F5B6088}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominator.Tests", "Dominator.Tests\Dominator.Tests.csproj", "{4437A05C-6AA0-498E-9E74-B73EE66052E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5510519F-6352-4690-86E5-0FBB1F5B6088}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5510519F-6352-4690-86E5-0FBB1F5B6088}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5510519F-6352-4690-86E5-0FBB1F5B6088}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4437A05C-6AA0-498E-9E74-B73EE66052E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4437A05C-6AA0-498E-9E74-B73EE66052E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4437A05C-6AA0-498E-9E74-B73EE66052E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4437A05C-6AA0-498E-9E74-B73EE66052E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
