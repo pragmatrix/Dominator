@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using Dominator.Net;
+using Dominator.Windows10.Settings;
 using Microsoft.Win32;
 
 namespace Dominator.Windows10
@@ -48,11 +49,11 @@ namespace Dominator.Windows10
 				Title = ApplicationName
 			};
 
-			var specification = BuildSpecification();
+			var allSettings = Settings.Settings.All;
 
 			using (var controller = new UIController())
 			{
-				var ui = UI.ForDominator(specification, controller);
+				var ui = UI.ForDominator(allSettings, controller);
 
 				var container = new ScrollViewer
 				{
@@ -64,50 +65,6 @@ namespace Dominator.Windows10
 				controller.scheduleUpdateAllStates();
 				app.Run(window);
 			}
-		}
-
-		static IDominator BuildSpecification() => DSL
-			.BeginGroup("Windows 10 Dominator")
-			.Explanation("Manage all privacy related settings in one place.")
-			.PrivacySettings()
-			.Specification();
-
-		static GroupBuilder PrivacySettings(this GroupBuilder dsl)
-		{
-			return dsl
-				.BeginItem("Advertising ID")
-				.Explanation("Don't let apps use my advertising ID")
-				.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo", "Enabled", 0, 1)
-				.End();
-		}
-
-		static GroupBuilder WiFiDefaults(this GroupBuilder dsl)
-		{
-			return dsl;
-		}
-
-		static GroupBuilder Cortana(this GroupBuilder dsl)
-		{
-			return dsl;
-		}
-
-		static ItemBuilder RegistryValue(this ItemBuilder dsl, string key, string valueName, uint dominatedValue, uint submissiveValue)
-		{
-			return dsl
-				.Setter(
-					action => Registry.SetValue(key, valueName, action == DominationAction.Dominate ? dominatedValue : submissiveValue, RegistryValueKind.DWord))
-				.Getter(() =>
-				{
-					var value = Registry.GetValue(key, valueName, null);
-					if (!(value is int))
-						return DominatorState.Indetermined;
-					var v = (uint)(int) value;
-					if (v == dominatedValue)
-						return DominatorState.Dominated;
-					if (v == submissiveValue)
-						return DominatorState.Submissive;
-					return DominatorState.Indetermined;
-				});
 		}
 	}
 }
