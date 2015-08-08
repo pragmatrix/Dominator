@@ -88,6 +88,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Settings\All.cs" />
+    <Compile Include="Settings\Optional.cs" />
     <Compile Include="Settings\SettingsTools.cs" />
     <Compile Include="Settings\Privacy.cs" />
     <Compile Include="Tools\DedicatedThreadDispatcher.cs" />

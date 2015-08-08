@@ -29,6 +29,11 @@ namespace Dominator.Net
 			return new ItemBuilder(this, title);
 		}
 
+		public GroupBuilder BeginGroup(string title)
+		{
+			return new GroupBuilder(this, title);
+		}
+
 		public GroupBuilder Explanation(string explanation)
 		{
 			_explanation_ = explanation;

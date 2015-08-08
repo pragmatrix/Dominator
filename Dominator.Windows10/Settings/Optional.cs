@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Dominator.Net;
+
+namespace Dominator.Windows10.Settings
+{
+	static partial class Settings
+	{
+		public static GroupBuilder OptionalSettings(this GroupBuilder dsl) => dsl
+			.BeginGroup("Optional Settings")
+			.Explanation("Some of them are actually useful")
+				.BeginItem("SmartScreen Filter")
+				.Explanation("Turn off SmartScreen Filter to check web content (URLs) that Windows Store apps use")
+				.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost", "EnableWebContentEvaluation", 0, 1)
+				.End()
+			.End();
+	}
+}
