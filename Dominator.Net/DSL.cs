@@ -37,17 +37,17 @@ namespace Dominator.Net
 
 		public GroupBuilder End()
 		{
+			if (_parent_ == null)
+				throw new InvalidOperationException($"{_title}: can't end root");
 			_parent_.AddNested(Specification());
 			return _parent_;
 		}
 
 		public IDominator Specification()
 		{
-			if (_parent_ == null)
-				throw new InvalidOperationException($"{_title}: can't end root");
-
-			if (_nested.Count == 0)
-				throw new InvalidOperationException($"{_title}: no nested dominators");
+			// it comes in handy to allow zero nested items when building new dominators.
+			// if (_nested.Count == 0)
+			//	throw new InvalidOperationException($"{_title}: no nested dominators");
 
 			var description = new DominatorDescription(_title, _explanation_ ?? "");
 

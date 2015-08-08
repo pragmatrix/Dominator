@@ -6,11 +6,22 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using Dominator.Net;
+using System.Reflection;
 
 namespace Dominator.Windows10
 {
 	static class Program
 	{
+		static readonly string ApplicationName = makeApplicationName();
+
+		static string makeApplicationName()
+		{
+			var assembly = typeof (Program).Assembly;
+			var product = (AssemblyProductAttribute) (assembly.GetCustomAttributes(typeof (AssemblyProductAttribute)).First());
+			return product.Product;
+		}
+
+		[STAThread]
 		public static int Main(string[] args)
 		{
 			try
@@ -31,10 +42,23 @@ namespace Dominator.Windows10
 				throw new InvalidOperationException("no support for arguments yet!");
 
 			var app = new Application();
-			var window = new Window();
+			var window = new Window
+			{
+				WindowStartupLocation = WindowStartupLocation.CenterScreen,
+				Width = 640,
+				Height = 480,
+				Title = ApplicationName
+			};
+
+			var grid = new Grid
+			{
+				Margin = new Thickness(16)
+			};
+			window.Content = grid;
+
 			var specification = BuildSpecification();
 
-			populateUI(window, specification);
+			UI.Populate(grid, specification);
 			app.Run(window);
 		}
 
