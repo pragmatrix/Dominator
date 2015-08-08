@@ -54,13 +54,13 @@ namespace Dominator.Windows10
 			{
 				var ui = UI.ForDominator(specification, controller);
 
-				var container = new Grid
+				var container = new ScrollViewer
 				{
-					Margin = new Thickness(16)
+					Padding = new Thickness(16),
+					VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
+					Content = ui
 				};
-				container.Children.Add(ui);
 				window.Content = container;
-
 				app.Run(window);
 			}
 		}
