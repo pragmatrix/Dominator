@@ -20,7 +20,7 @@ namespace Dominator.Windows10
 			var description = CreateDescription(group.Description);
 			panel.Children.Add(description);
 
-			var nestedGrid = new Grid
+			var nestedStackPanel = new StackPanel
 			{
 				Margin = new Thickness(16, 8, 0, 8)
 			};
@@ -28,10 +28,10 @@ namespace Dominator.Windows10
 			foreach (var nested in group.Nested)
 			{
 				var nestedUI = ForDominator(nested, context);
-				nestedGrid.Children.Add(nestedUI);
+				nestedStackPanel.Children.Add(nestedUI);
 			}
 
-			panel.Children.Add(nestedGrid);
+			panel.Children.Add(nestedStackPanel);
 			return panel;
 		}
 
