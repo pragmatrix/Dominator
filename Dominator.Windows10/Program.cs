@@ -61,6 +61,7 @@ namespace Dominator.Windows10
 					Content = ui
 				};
 				window.Content = container;
+				controller.scheduleUpdateAllStates();
 				app.Run(window);
 			}
 		}
