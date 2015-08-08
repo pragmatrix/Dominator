@@ -28,9 +28,9 @@ namespace Dominator.Net
 		public readonly IEnumerable<DominationState> Nested;
 	}
 
-	public static class Dominator
+	public static class DominatorStateExtensions
 	{
-		public static DominationState QueryState(IDominator dominator)
+		public static DominationState QueryState(this IDominator dominator)
 		{
 			var item_ = dominator as IDominatorItem;
 			if (item_ != null)
@@ -63,7 +63,7 @@ namespace Dominator.Net
 			return new DominationState(state, null, nested);
 		}
 
-		static DominatorState CumulativeState(IEnumerable<DominatorState> states)
+		public static DominatorState CumulativeState(this IEnumerable<DominatorState> states)
 		{
 			var allDominated = states.All(state => state == DominatorState.Dominated);
 			if (allDominated)

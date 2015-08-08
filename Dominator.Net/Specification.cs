@@ -9,6 +9,12 @@ namespace Dominator.Net
 		Indetermined
 	}
 
+	public enum DominationAction
+	{
+		Dominate,
+		MakeSubmissive
+	}
+
 	public struct DominatorDescription
 	{
 		public DominatorDescription(string title, string explanation)
@@ -29,8 +35,7 @@ namespace Dominator.Net
 	public interface IDominatorItem : IDominator
 	{
 		DominatorState GetState();
-		void MakeSubmissive();
-		void Dominate();
+		void SetState(DominationAction action);
 	}
 
 	public interface IDominatorGroup : IDominator

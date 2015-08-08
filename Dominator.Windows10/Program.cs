@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using Dominator.Net;
-using System.Reflection;
+using Microsoft.Win32;
 
 namespace Dominator.Windows10
 {
@@ -50,27 +48,36 @@ namespace Dominator.Windows10
 				Title = ApplicationName
 			};
 
-			var grid = new Grid
-			{
-				Margin = new Thickness(16)
-			};
-			window.Content = grid;
-
 			var specification = BuildSpecification();
 
-			UI.Populate(grid, specification);
-			app.Run(window);
+			using (var controller = new UIController())
+			{
+				var ui = UI.ForDominator(specification, controller);
+
+				var container = new Grid
+				{
+					Margin = new Thickness(16)
+				};
+				container.Children.Add(ui);
+				window.Content = container;
+
+				app.Run(window);
+			}
 		}
 
 		static IDominator BuildSpecification() => DSL
 			.BeginGroup("Windows 10 Dominator")
-			.Explanation("Manage all privacy settings in one place.")
+			.Explanation("Manage all privacy related settings in one place.")
 			.PrivacySettings()
 			.Specification();
 
 		static GroupBuilder PrivacySettings(this GroupBuilder dsl)
 		{
-			return dsl;
+			return dsl
+				.BeginItem("Advertising ID")
+				.Explanation("Don't let apps use my advertising ID")
+				.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo", "Enabled", 0, 1)
+				.End();
 		}
 
 		static GroupBuilder WiFiDefaults(this GroupBuilder dsl)
@@ -81,6 +88,25 @@ namespace Dominator.Windows10
 		static GroupBuilder Cortana(this GroupBuilder dsl)
 		{
 			return dsl;
+		}
+
+		static ItemBuilder RegistryValue(this ItemBuilder dsl, string key, string valueName, uint dominatedValue, uint submissiveValue)
+		{
+			return dsl
+				.Setter(
+					action => Registry.SetValue(key, valueName, action == DominationAction.Dominate ? dominatedValue : submissiveValue, RegistryValueKind.DWord))
+				.Getter(() =>
+				{
+					var value = Registry.GetValue(key, valueName, null);
+					if (!(value is int))
+						return DominatorState.Indetermined;
+					var v = (uint)(int) value;
+					if (v == dominatedValue)
+						return DominatorState.Dominated;
+					if (v == submissiveValue)
+						return DominatorState.Submissive;
+					return DominatorState.Indetermined;
+				});
 		}
 	}
 }

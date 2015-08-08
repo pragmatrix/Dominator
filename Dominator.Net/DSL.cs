@@ -73,7 +73,7 @@ namespace Dominator.Net
 		readonly string _title;
 		string _explanation_;
 
-		Action<DominatorState> _setter_;
+		Action<DominationAction> _setter_;
 		Func<DominatorState> _getter_;
 
 		public ItemBuilder Explanation(string explanation)
@@ -82,7 +82,7 @@ namespace Dominator.Net
 			return this;
 		}
 
-		public ItemBuilder Setter(Action<DominatorState> setter)
+		public ItemBuilder Setter(Action<DominationAction> setter)
 		{
 			_setter_ = setter;
 			return this;
@@ -116,7 +116,7 @@ namespace Dominator.Net
 
 	sealed class Item : IDominatorItem
 	{
-		internal Item(DominatorDescription description, Func<DominatorState> getter, Action<DominatorState> setter)
+		internal Item(DominatorDescription description, Func<DominatorState> getter, Action<DominationAction> setter)
 		{
 			Description = description;
 			_getter = getter;
@@ -124,7 +124,7 @@ namespace Dominator.Net
 		}
 
 		readonly Func<DominatorState> _getter;
-		readonly Action<DominatorState> _setter;
+		readonly Action<DominationAction> _setter;
 
 		public DominatorDescription Description { get; }
 		public DominatorState GetState()
@@ -132,14 +132,9 @@ namespace Dominator.Net
 			return _getter();
 		}
 
-		public void MakeSubmissive()
+		public void SetState(DominationAction action)
 		{
-			_setter(DominatorState.Submissive);
-		}
-
-		public void Dominate()
-		{
-			_setter(DominatorState.Dominated);
+			_setter(action);
 		}
 	}
 
