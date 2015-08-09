@@ -73,7 +73,6 @@ namespace Dominator.Windows10
 				}
 			});
 		}
-
 	
 		void scheduleFeedbackFor(IDominatorItem dominator)
 		{
