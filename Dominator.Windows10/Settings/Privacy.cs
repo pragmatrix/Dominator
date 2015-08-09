@@ -66,7 +66,14 @@ namespace Dominator.Windows10.Settings
 					.BeginItem("App Location")
 					.Explanation("Do not allow apps and services to request your location")
 					.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}", "Value", "Deny", "Allow")
+					.End()
 				.End()
+
+				.BeginItem("Bing Search")
+				.Explanation("Do not provide web results when I use the the Windows search bar")
+				.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Search", "BingSearchEnabled", 0, 1)
+				.End()
+
 
 			.End();
 	}
