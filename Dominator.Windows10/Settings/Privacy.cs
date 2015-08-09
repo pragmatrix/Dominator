@@ -18,11 +18,6 @@ namespace Dominator.Windows10.Settings
 				.Explanation("Do not let websites provide locally relevant content by accessing my language list")
 				.RegistryValue(@"HKEY_CURRENT_USER\Control Panel\International\User Profile", "HttpAcceptLanguageOptOut", 1, 0)
 				.End()
-			/*
-				.BeginItem("Telemetry")
-				.Explanation("Disable all Microsoft telemetry service")
-				.End()
-			*/
 
 				.BeginItem("Diagnostics Tracking Service")
 				.Explanation("Do not send data about functional issues to Microsoft")
@@ -41,6 +36,9 @@ namespace Dominator.Windows10.Settings
 				.Service("dmwappushsvc", ServiceConfiguration.Disabled, new ServiceConfiguration(ServiceStartup.Automatic, ServiceStatus.Started) )
 				.End()
 
+				.BeginGroup("Telemetry")
+				.Explanation("Block all Microsoft Telemetry URLs")
+				.End()
 
 			.End();
 	}

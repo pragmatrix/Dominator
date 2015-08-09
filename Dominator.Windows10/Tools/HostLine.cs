@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 
 namespace Dominator.Windows10.Tools
 {
@@ -22,15 +23,44 @@ namespace Dominator.Windows10.Tools
 	{
 		public readonly HostLineKind Kind;
 		public readonly HostEntry? Entry_;
+		// note that comments do include all the prefixing whitespace and '#'
 		public readonly string Comment_;
 		public readonly HostLineError? Error_;
+		public readonly string Line;
 
-		public HostLine(HostLineKind kind, HostEntry? entry_ = null, string comment_ = null, HostLineError? error_ = null)
+		public HostLine(HostLineKind kind, HostEntry? entry_ = null, string comment_ = null, HostLineError? error_ = null, string line_ = null)
 		{
 			Kind = kind;
 			Entry_ = entry_;
 			Comment_ = comment_;
 			Error_ = error_;
+			Line = line_ ?? mkLine(Entry_, Comment_);
+		}
+
+		static string mkLine(HostEntry? entry_, string comment_)
+		{
+			var sb = new StringBuilder();
+			if (entry_ != null)
+			{
+				sb.Append(entry_.Value.Host);
+				sb.Append(' ');
+				sb.Append(entry_.Value.IP);
+			}
+
+			if (comment_ != null)
+				sb.Append(comment_);
+
+			return sb.ToString();
+		}
+
+		public override string ToString()
+		{
+			return Line;
+		}
+
+		public static HostLine FromEntry(HostEntry entry, string comment_ = null)
+		{
+			return new HostLine(HostLineKind.HostEntry, entry_: entry, comment_: comment_);
 		}
 
 		public static HostLine SafeParse(string line)
@@ -48,36 +78,37 @@ namespace Dominator.Windows10.Tools
 
 		public static HostLine Parse(string line)
 		{
-			line = line.Trim();
-			if (line == "")
+			var todo = line.Trim();
+			if (todo == "")
 				return new HostLine(HostLineKind.EmptyLine);
 
-			if (line.StartsWith("#"))
-				return new HostLine(HostLineKind.CommentLine, comment_: line.Substring(1));
+			if (todo.StartsWith("#"))
+				return new HostLine(HostLineKind.CommentLine, comment_: line, line_: line);
 
-			var firstSpaceOrTab = line.IndexOfAny(new[] {' ', '\t'});
+			var firstSpaceOrTab = todo.IndexOfAny(new[] {' ', '\t'});
 			if (firstSpaceOrTab == -1)
-				return Error(HostLineError.NoSpaceOrTabDelimiterFound);
+				return Error(HostLineError.NoSpaceOrTabDelimiterFound, line);
 
-			var ip = line.Substring(0, firstSpaceOrTab);
-			line = line.Substring(firstSpaceOrTab).TrimStart();
-			var urlEnd = line.IndexOfAny(new[] {' ', '\t', '#'});
+			var ip = todo.Substring(0, firstSpaceOrTab);
+			todo = todo.Substring(firstSpaceOrTab).TrimStart();
+			var urlEnd = todo.IndexOfAny(new[] {' ', '\t', '#'});
 			if (urlEnd == -1)
 			{
-				if (line.Length == 0)
-					return Error(HostLineError.ZeroLengthURL);
-				return new HostLine(HostLineKind.HostEntry, new HostEntry(ip, line));
+				if (todo.Length == 0)
+					return Error(HostLineError.ZeroLengthURL, line);
+				return new HostLine(HostLineKind.HostEntry, new HostEntry(ip, todo), line_: line);
 			}
-			var host = line.Substring(0, urlEnd);
-			var rest = line.Substring(urlEnd).TrimStart();
-			if (rest.StartsWith("#"))
-				return new HostLine(HostLineKind.HostEntry, new HostEntry(ip, host), rest.Substring(1));
-			return Error(HostLineError.FoundExcessCharactersAfterIPAndHost);
+			var host = todo.Substring(0, urlEnd);
+			var rest = todo.Substring(urlEnd);
+			todo = rest.TrimStart();
+			if (todo.StartsWith("#"))
+				return new HostLine(HostLineKind.HostEntry, new HostEntry(ip, host), rest, line_: line);
+			return Error(HostLineError.FoundExcessCharactersAfterIPAndHost, line);
 		}
 
-		static HostLine Error(HostLineError text)
+		static HostLine Error(HostLineError error, string line)
 		{
-			return new HostLine(HostLineKind.ParseError, error_: text);
+			return new HostLine(HostLineKind.ParseError, error_: error, line_: line);
 		}
 	}
 }

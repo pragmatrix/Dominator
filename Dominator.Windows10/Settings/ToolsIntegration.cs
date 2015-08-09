@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Dominator.Net;
 using Microsoft.Win32;
 using System.ServiceProcess;
@@ -45,6 +46,40 @@ namespace Dominator.Windows10.Settings
 							return DominatorState.Submissive;
 						return DominatorState.Indetermined;
 					});
+		}
+
+		public static ItemBuilder Hosts(this ItemBuilder dsl, string blockingFile)
+		{
+			return dsl
+				.Getter(() =>
+				{
+					var hosts = HostsTools.ReadSystemHostsFile().SafeParseHostLines();
+					var blocked = HostsTools.ReadHostsFile(blockingFile).SafeParseHostLines().ExtractEntries();
+					return hosts.ContainsAllHostEntries(blocked) 
+						? DominatorState.Dominated 
+						: DominatorState.Submissive;
+				})
+				.Setter(action =>
+				{
+					var hosts = HostsTools.ReadSystemHostsFile().SafeParseHostLines();
+					var blocked = HostsTools.ReadHostsFile(blockingFile).SafeParseHostLines().ExtractEntries();
+					switch (action)
+					{
+						case DominationAction.Dominate:
+						{
+							var result = hosts.FilterHosts(blocked.Select(e => e.Host)).ToLines();
+							HostsTools.WriteSystemHostsFile(result);
+						}
+						break;
+
+						case DominationAction.MakeSubmissive:
+						{
+							var result = hosts.Merge(blocked).ToLines();
+							HostsTools.WriteSystemHostsFile(result);
+						}
+						break;
+					}
+				});
 		}
 	}
 }

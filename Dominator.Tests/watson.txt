@@ -1,0 +1,2 @@
+﻿0.0.0.0 watson.live.com
+0.0.0.0 watson.microsoft.com
