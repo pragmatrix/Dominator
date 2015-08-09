@@ -1,41 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.ServiceProcess;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Markup;
-using System.Xml.Schema;
-using Dominator.Net;
+using Dominator.Windows10.Settings;
 using Microsoft.Win32;
 
-namespace Dominator.Windows10.Settings
+namespace Dominator.Windows10.Tools
 {
 	static class ServiceTools
 	{
-		public static ItemBuilder Service(this ItemBuilder dsl, string name, ServiceConfiguration dominate, ServiceConfiguration makeSubmissive)
-		{
-			return dsl
-				.Setter(
-					action =>
-					{
-						Configure(name, action == DominationAction.Dominate ? dominate : makeSubmissive);
-					})
-				.Getter(
-					() =>
-					{
-						var configuration = GetConfiguration(name);
-						if (configuration == dominate)
-							return DominatorState.Dominated;
-						if (configuration == makeSubmissive)
-							return DominatorState.Submissive;
-						return DominatorState.Indetermined;
-					});
-		}
-
-		static void Configure(string name, ServiceConfiguration config)
+		public static void Configure(string name, ServiceConfiguration config)
 		{
 			if (!IsExisting(name))
 				return;
@@ -44,7 +17,7 @@ namespace Dominator.Windows10.Settings
 			SetServiceStatus(name, config.Status);
 		}
 
-		static ServiceConfiguration GetConfiguration(string name)
+		public static ServiceConfiguration GetConfiguration(string name)
 		{
 			if (!IsExisting(name))
 				return new ServiceConfiguration(ServiceStartup.Disabled, ServiceStatus.Stopped);
@@ -130,7 +103,7 @@ namespace Dominator.Windows10.Settings
 					return;
 				sc.Stop();
 				sc.WaitForStatus(ServiceControllerStatus.Stopped, timeToWait);
-				System.Console.WriteLine(sc.Status);
+				Console.WriteLine(sc.Status);
 				if (sc.Status != ServiceControllerStatus.Stopped)
 					throw new Exception($"Failed to stop service {service}");
 			}

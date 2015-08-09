@@ -5,13 +5,14 @@ using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 using Dominator.Windows10.Settings;
+using Dominator.Windows10.Tools;
 using NUnit.Framework;
 
 namespace Dominator.Tests
 {
 	[TestFixture]
-    public class ServiceTests
-    {
+	public class ServiceTests
+	{
 		[Test]
 		public void Existing()
 		{
@@ -33,13 +34,13 @@ namespace Dominator.Tests
 			Assert.That(startup, Is.EqualTo(ServiceStartup.Automatic));
 		}
 
-		[Test]
+		[Test, Ignore]
 		public void StopAndStart()
 		{
 			// Diagnostic Policy Service
 			Assert.That(ServiceTools.IsExisting("DPS"));
 			Assert.That(ServiceTools.Status("DPS"), Is.EqualTo(ServiceControllerStatus.Running));
-            ServiceTools.Stop("DPS", TimeSpan.FromMilliseconds(5000));
+			ServiceTools.Stop("DPS", TimeSpan.FromMilliseconds(5000));
 			ServiceTools.Start("DPS", TimeSpan.FromMilliseconds(5000));
 		}
 
@@ -48,6 +49,5 @@ namespace Dominator.Tests
 		{
 			ServiceTools.Start("DPS", TimeSpan.FromMilliseconds(5000));
 		}
-
 	}
 }

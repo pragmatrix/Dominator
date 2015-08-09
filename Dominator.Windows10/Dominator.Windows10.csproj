@@ -89,10 +89,13 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Settings\All.cs" />
+    <Compile Include="Tools\HostEntry.cs" />
+    <Compile Include="Tools\HostLine.cs" />
+    <Compile Include="Tools\HostsTools.cs" />
     <Compile Include="Settings\Optional.cs" />
-    <Compile Include="Settings\ServiceConfiguration.cs" />
-    <Compile Include="Settings\ServiceTools.cs" />
-    <Compile Include="Settings\RegistryTools.cs" />
+    <Compile Include="Tools\ServiceConfiguration.cs" />
+    <Compile Include="Tools\ServiceTools.cs" />
+    <Compile Include="Settings\ToolsIntegration.cs" />
     <Compile Include="Settings\Privacy.cs" />
     <Compile Include="Tools\DedicatedThreadDispatcher.cs" />
     <Compile Include="UI.cs" />
@@ -131,6 +134,16 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Settings\telemetry.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Settings\skype-ads.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -2,6 +2,7 @@
 using Dominator.Net;
 using Microsoft.Win32;
 using System.ServiceProcess;
+using Dominator.Windows10.Tools;
 
 namespace Dominator.Windows10.Settings
 {
@@ -24,6 +25,26 @@ namespace Dominator.Windows10.Settings
 						return DominatorState.Submissive;
 					return DominatorState.Indetermined;
 				});
+		}
+
+		public static ItemBuilder Service(this ItemBuilder dsl, string name, ServiceConfiguration dominate, ServiceConfiguration makeSubmissive)
+		{
+			return dsl
+				.Setter(
+					action =>
+					{
+						ServiceTools.Configure(name, action == DominationAction.Dominate ? dominate : makeSubmissive);
+					})
+				.Getter(
+					() =>
+					{
+						var configuration = ServiceTools.GetConfiguration(name);
+						if (configuration == dominate)
+							return DominatorState.Dominated;
+						if (configuration == makeSubmissive)
+							return DominatorState.Submissive;
+						return DominatorState.Indetermined;
+					});
 		}
 	}
 }
