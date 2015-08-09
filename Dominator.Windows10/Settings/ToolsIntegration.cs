@@ -1,9 +1,7 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Dominator.Net;
-using Microsoft.Win32;
-using System.ServiceProcess;
 using Dominator.Windows10.Tools;
+using Microsoft.Win32;
 
 namespace Dominator.Windows10.Settings
 {
