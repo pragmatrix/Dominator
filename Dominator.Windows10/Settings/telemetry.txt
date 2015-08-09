@@ -44,7 +44,6 @@
 0.0.0.0 statsfe1.ws.microsoft.com
 0.0.0.0 pre.footprintpredict.com
 0.0.0.0 204.79.197.200
-0.0.0.0 23.218.212.69
 0.0.0.0 i1.services.social.microsoft.com
 0.0.0.0 i1.services.social.microsoft.com.nsatc.net
 0.0.0.0 feedback.windows.com

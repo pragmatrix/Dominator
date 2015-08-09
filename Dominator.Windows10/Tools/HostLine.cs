@@ -42,9 +42,9 @@ namespace Dominator.Windows10.Tools
 			var sb = new StringBuilder();
 			if (entry_ != null)
 			{
-				sb.Append(entry_.Value.Host);
-				sb.Append(' ');
 				sb.Append(entry_.Value.IP);
+				sb.Append(' ');
+				sb.Append(entry_.Value.Host);
 			}
 
 			if (comment_ != null)

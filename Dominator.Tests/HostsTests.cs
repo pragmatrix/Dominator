@@ -225,5 +225,12 @@ namespace Dominator.Tests
 			var lines2 = lines.FilterHosts(new[] { "watson.live.com", "watson.microsoft.com" });
 			Assert.That(lines2.Length, Is.EqualTo(lines.Length-4));
 		}
+
+		[Test]
+		public void hostLineSerializesProperly()
+		{
+			var hostLine = new HostLine(HostLineKind.HostEntry, new HostEntry("0.1.2.3", "hostname"), comment_: " # comment");
+			Assert.That(hostLine.Line, Is.EqualTo("0.1.2.3 hostname # comment"));
+		}
 	}
 }

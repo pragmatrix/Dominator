@@ -36,8 +36,9 @@ namespace Dominator.Windows10.Settings
 				.Service("dmwappushsvc", ServiceConfiguration.Disabled, new ServiceConfiguration(ServiceStartup.Automatic, ServiceStatus.Started) )
 				.End()
 
-				.BeginGroup("Telemetry")
-				.Explanation("Block all Microsoft Telemetry URLs")
+				.BeginItem("Telemetry")
+				.Explanation("Block all Microsoft Telemetry URLs in the hosts file")
+				.Hosts("Settings/telemetry.txt")
 				.End()
 
 			.End();
