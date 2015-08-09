@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dominator.Net;
-using Dominator.Windows10.Tools;
+﻿using Dominator.Net;
 
 namespace Dominator.Windows10.Settings
 {
@@ -12,7 +6,7 @@ namespace Dominator.Windows10.Settings
 	{
 		public static GroupBuilder Annoyances(this GroupBuilder dsl) => dsl
 			.BeginGroup("Annoyances")
-			.Explanation("Settings that are very annoying")
+			.Explanation("Settings that may cause annoying consequences")
 
 				.BeginItem("Skype Home and Advertising")
 				.Explanation("Block all Skype home and advertising URLs in the system's hosts file")

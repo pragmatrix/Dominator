@@ -8,8 +8,8 @@ namespace Dominator.Windows10.Settings
 			.BeginGroup("Windows 10 Dominator")
 			.Explanation("Manage all privacy related settings in one place")
 			.PrivacySettings()
-			.OptionalProtections()
 			.Annoyances()
+			.OptionalProtections()
 			.Specification();
 	}
 }
