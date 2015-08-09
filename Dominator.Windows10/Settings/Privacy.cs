@@ -11,7 +11,13 @@ namespace Dominator.Windows10.Settings
 			.Explanation("Settings that protect your privacy")
 				.BeginItem("Advertising ID")
 				.Explanation("Do not let apps use my advertising ID")
-				.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo", "Enabled", 0, 1, DominatorState.Dominated)
+				// on a fresh Windows 10 installation with Express Settings, the initial state is in Submissive, even thought the entry does not exist, hmm.
+				.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo", "Enabled", 0, 1)
+				.End()
+
+				.BeginItem("Writing Tracking")
+				.Explanation("Do not send Microsoft info about how I write")
+				.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Input\TIPC", "Enabled", 0, 1)
 				.End()
 
 				.BeginItem("Languages")
@@ -36,9 +42,18 @@ namespace Dominator.Windows10.Settings
 				.Service("dmwappushsvc", ServiceConfiguration.Disabled, new ServiceConfiguration(ServiceStartup.Automatic, ServiceStatus.Started) )
 				.End()
 
-				.BeginItem("Telemetry")
-				.Explanation("Block all Microsoft telemetry URLs in the system's hosts file")
-				.Hosts("Settings/telemetry.txt")
+				.BeginGroup("Telemetry")
+				.Explanation("Microsoft telemetry data collection")
+
+					.BeginItem("Telemetry Collection")	
+					.Explanation("Do not collect telemetry data")
+					.RegistryValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection", "AllowTelemetry", 0, 1)
+					.End()
+
+					.BeginItem("Telemetry URLs")
+					.Explanation("Block all Microsoft telemetry URLs in the system's hosts file")
+					.Hosts("Settings/telemetry.txt")
+					.End()
 				.End()
 
 			.End();
