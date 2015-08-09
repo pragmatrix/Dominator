@@ -89,6 +89,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Settings\All.cs" />
+    <Compile Include="Tools\DisposeAction.cs" />
     <Compile Include="Tools\HostEntry.cs" />
     <Compile Include="Tools\HostLine.cs" />
     <Compile Include="Tools\HostsTools.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Settings\ToolsIntegration.cs" />
     <Compile Include="Settings\Privacy.cs" />
     <Compile Include="Tools\DedicatedThreadDispatcher.cs" />
+    <Compile Include="Tools\SoftSynchronization.cs" />
     <Compile Include="UI.cs" />
     <Compile Include="UIController.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

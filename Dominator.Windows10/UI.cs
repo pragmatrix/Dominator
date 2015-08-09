@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Dominator.Net;
+using Dominator.Windows10.Tools;
 using ToggleSwitch;
 
 namespace Dominator.Windows10
@@ -55,19 +56,37 @@ namespace Dominator.Windows10
 			};
 			switchPanel.Children.Add(errorLabel);
 
+			// argh, that **** calls us back when we change the state manually.
+			var section = new Soft.Section();
+
+			sw.Checked += (sender, args) =>
+			{
+				if (!section.IsLocked)
+					context.requestAction(item, DominationAction.Dominate);
+			};
+
+			sw.Unchecked += (sender, args) =>
+			{
+				if (!section.IsLocked)
+					context.requestAction(item, DominationAction.MakeSubmissive);
+			};
+
 			context.registerFeedback(item,
 				state =>
 				{
 					switch (state.State)
 					{
 						case DominatorState.Dominated:
-							sw.IsChecked = true;
+							using (section.Lock())
+								sw.IsChecked = true;
 							break;
 						case DominatorState.Submissive:
-							sw.IsChecked = false;
+							using (section.Lock())
+								sw.IsChecked = false;
 							break;
 						case DominatorState.Indetermined:
-							sw.IsChecked = false;
+							using (section.Lock())
+								sw.IsChecked = false;
 							break;
 					}
 
@@ -91,10 +110,6 @@ namespace Dominator.Windows10
 //				HorizontalAlignment = HorizontalAlignment.Left,
 				Margin = new Thickness(4, 4, 0, 4)
 			};
-
-			sw.Checked += (sender, args) => context.requestAction(item, DominationAction.Dominate);
-			sw.Unchecked += (sender, args) => context.requestAction(item, DominationAction.MakeSubmissive);
-
 		
 			return sw;
 		}
