@@ -28,6 +28,25 @@ namespace Dominator.Windows10.Settings
 				});
 		}
 
+		static ItemBuilder RegistryValue(this ItemBuilder dsl, string key, string valueName, string dominatedValue, string submissiveValue, DominatorState entryMissingState = DominatorState.Indetermined)
+		{
+			return dsl
+				.Setter(
+					action => Registry.SetValue(key, valueName, action == DominationAction.Dominate ? dominatedValue : submissiveValue, RegistryValueKind.String))
+				.Getter(() =>
+				{
+					var value = Registry.GetValue(key, valueName, null);
+					if (!(value is string))
+						return entryMissingState;
+					var v = (string)value;
+					if (v == dominatedValue)
+						return DominatorState.Dominated;
+					if (v == submissiveValue)
+						return DominatorState.Submissive;
+					return DominatorState.Indetermined;
+				});
+		}
+
 		public static ItemBuilder Service(this ItemBuilder dsl, string name, ServiceConfiguration dominate, ServiceConfiguration makeSubmissive)
 		{
 			return dsl

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Dominator.Net;
 using Dominator.Windows10.Tools;
 
@@ -59,6 +60,12 @@ namespace Dominator.Windows10.Settings
 					.Explanation("Block all Microsoft telemetry URLs in the system's hosts file")
 					.Hosts("Settings/telemetry.txt")
 					.End()
+				.End()
+
+				.BeginGroup("Location")
+					.BeginItem("App Location")
+					.Explanation("Do not allow apps and services to request your location")
+					.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}", "Value", "Deny", "Allow")
 				.End()
 
 			.End();
