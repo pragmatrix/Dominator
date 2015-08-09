@@ -67,14 +67,14 @@ namespace Dominator.Windows10.Settings
 					{
 						case DominationAction.Dominate:
 						{
-							var result = hosts.FilterHosts(blocked.Select(e => e.Host)).ToLines();
+							var result = hosts.Merge(blocked).ToLines();
 							HostsTools.WriteSystemHostsFile(result);
 						}
 						break;
 
 						case DominationAction.MakeSubmissive:
 						{
-							var result = hosts.Merge(blocked).ToLines();
+							var result = hosts.FilterHosts(blocked.Select(e => e.Host)).ToLines();
 							HostsTools.WriteSystemHostsFile(result);
 						}
 						break;
