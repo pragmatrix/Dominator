@@ -36,20 +36,21 @@ namespace Dominator.Windows10
 			return panel;
 		}
 
-		static readonly Brush WhiteBrush = new SolidColorBrush(Colors.White);
 		static readonly Brush RedBrush = new SolidColorBrush(Colors.Red);
 
 		public static UIElement ForItem(IDominatorItem item, IUIRegistrationContext context)
 		{
-			var panel = new StackPanel();
-			panel.Margin = new Thickness(0, 0, 0, 12);
+			var panel = new StackPanel
+			{
+				Margin = new Thickness(0, 0, 0, 12)
+			};
 			var description = CreateDescription(item.Description);
 			panel.Children.Add(description);
 
 			var switchPanel = new DockPanel();
-			var sw = createSwitch(item, context);
+			var sw = createSwitch();
 			switchPanel.Children.Add(sw);
-			var errorLabel = new Label()
+			var errorLabel = new Label
 			{
 				Content = "ErrorText",
 				VerticalAlignment = VerticalAlignment.Center,
@@ -98,7 +99,7 @@ namespace Dominator.Windows10
 			return panel;
 		}
 
-		static HorizontalToggleSwitch createSwitch(IDominatorItem item, IUIRegistrationContext context)
+		static HorizontalToggleSwitch createSwitch()
 		{
 			var sw = new HorizontalToggleSwitch
 			{

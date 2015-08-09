@@ -70,7 +70,7 @@ namespace Dominator.Net
 			throw new InvalidOperationException(dominator.ToString());
 		}
 
-		public static R DispatchTo<R>(this IDominator dominator, Func<IDominatorGroup, R> groupFunction, Func<IDominatorItem, R> itemFunction)
+		public static ReturnT DispatchTo<ReturnT>(this IDominator dominator, Func<IDominatorGroup, ReturnT> groupFunction, Func<IDominatorItem, ReturnT> itemFunction)
 		{
 			var group_ = dominator as IDominatorGroup;
 			if (group_ != null)

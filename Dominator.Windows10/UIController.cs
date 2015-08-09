@@ -13,8 +13,7 @@ namespace Dominator.Windows10
 		readonly Dispatcher _uiThreadDispatcher;
 		readonly Dictionary<IDominatorItem, Action<DominationState>> _feedback = new Dictionary<IDominatorItem, Action<DominationState>>();
 		readonly DedicatedThreadDispatcher _dispatcher = new DedicatedThreadDispatcher();
-		readonly Dictionary<IDominatorItem, DominationState> _stateCache = new Dictionary<IDominatorItem, DominationState>(); 
-
+		
 		public UIController()
 		{
 			_uiThreadDispatcher = Dispatcher.CurrentDispatcher;

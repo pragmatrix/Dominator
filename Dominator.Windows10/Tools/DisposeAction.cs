@@ -4,7 +4,7 @@ namespace Dominator.Windows10.Tools
 {
 	struct DisposeAction : IDisposable
 	{
-		Action _action;
+		readonly Action _action;
 
 		public DisposeAction(Action action)
 		{

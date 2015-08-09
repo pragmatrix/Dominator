@@ -40,7 +40,7 @@ namespace Dominator.Net
 			if (group_ != null)
 				return QueryGroupState(group_);
 
-			throw new NotImplementedException(dominator.ToString());
+			throw new InvalidOperationException(dominator.ToString());
 		}
 
 		static DominationState QueryItemState(IDominatorItem item)
