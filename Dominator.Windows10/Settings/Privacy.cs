@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using Dominator.Net;
+﻿using Dominator.Net;
 using Dominator.Windows10.Tools;
 
 namespace Dominator.Windows10.Settings

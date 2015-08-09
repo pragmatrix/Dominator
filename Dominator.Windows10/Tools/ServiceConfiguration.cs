@@ -1,6 +1,4 @@
-﻿using System.Windows.Media;
-
-namespace Dominator.Windows10.Tools
+﻿namespace Dominator.Windows10.Tools
 {
 	public enum ServiceStatus
 	{

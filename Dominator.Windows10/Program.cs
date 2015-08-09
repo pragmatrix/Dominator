@@ -3,9 +3,6 @@ using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
-using Dominator.Net;
-using Dominator.Windows10.Settings;
-using Microsoft.Win32;
 
 namespace Dominator.Windows10
 {

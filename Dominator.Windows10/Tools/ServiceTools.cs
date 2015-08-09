@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.ServiceProcess;
-using Dominator.Windows10.Settings;
 using Microsoft.Win32;
 
 namespace Dominator.Windows10.Tools

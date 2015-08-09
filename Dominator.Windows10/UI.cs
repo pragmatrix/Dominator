@@ -107,7 +107,6 @@ namespace Dominator.Windows10
 					Foreground = WhiteBrush
 				},
 				CheckedContent = "OK",
-//				HorizontalAlignment = HorizontalAlignment.Left,
 				Margin = new Thickness(4, 4, 0, 4)
 			};
 		
@@ -117,6 +116,7 @@ namespace Dominator.Windows10
 		public static UIElement CreateDescription(DominatorDescription description)
 		{
 			var panel = new StackPanel();
+			bool noTitle = description.Title == "";
 			var title = new Label
 			{
 				Content = description.Title,
