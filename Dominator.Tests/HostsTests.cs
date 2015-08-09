@@ -31,6 +31,19 @@ namespace Dominator.Tests
 			CollectionAssert.AreEqual(binaryBefore, binaryAfter);
 		}
 
+		[Test, Ignore]
+		public void parsingAndSerializingTheHostsFileDoesNotChangeIt()
+		{
+			var binaryBefore = File.ReadAllBytes("hosts.txt");
+
+			var lines = HostsTools.ReadHostsFile("hosts.txt").SafeParseHostLines();
+			HostsTools.WriteHostsFile("hosts.txt.bak", lines.ToLines());
+
+			var binaryAfter = File.ReadAllBytes("hosts.txt.bak");
+
+			CollectionAssert.AreEqual(binaryBefore, binaryAfter);
+		}
+
 		[Test]
 		public void emptyStringIsEmptyLine()
 		{
