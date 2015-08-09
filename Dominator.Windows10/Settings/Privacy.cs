@@ -30,6 +30,11 @@ namespace Dominator.Windows10.Settings
 				.Service("DiagTrack", ServiceConfiguration.Disabled, new ServiceConfiguration(ServiceStartup.Automatic, ServiceStatus.Started) )
 				.End()
 
+				.BeginItem("Feedback")
+				.Explanation("Never ask for feedback")
+				.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf\Rules", "NumberOfSIUFInPeriod", 0, 1)
+				.End()
+
 			/*
 				.BeginItem("Diagnostics Tracking Log")
 				.Explanation("Keep the log file about functional issues empty")
