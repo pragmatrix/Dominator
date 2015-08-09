@@ -8,29 +8,24 @@ namespace Dominator.Windows10.Settings
 		public static GroupBuilder PrivacySettings(this GroupBuilder dsl) => dsl
 			.BeginGroup("Privacy")
 			.Explanation("Settings that protect your privacy")
-				.BeginItem("Advertising ID")
-				.Explanation("Do not let apps use my advertising ID")
+				.BeginItem("Let apps use my advertising ID")
 				// on a fresh Windows 10 installation with Express Settings, the initial state is in Submissive, even thought the entry does not exist, hmm.
 				.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo", "Enabled", 0, 1)
 				.End()
 
-				.BeginItem("Writing Tracking")
-				.Explanation("Do not send Microsoft info about how I write")
+				.BeginItem("Send Microsoft info about how I write")
 				.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Input\TIPC", "Enabled", 0, 1)
 				.End()
 
-				.BeginItem("Languages")
-				.Explanation("Do not let websites provide locally relevant content by accessing my language list")
+				.BeginItem("Let websites provide locally relevant content by accessing my language list")
 				.RegistryValue(@"HKEY_CURRENT_USER\Control Panel\International\User Profile", "HttpAcceptLanguageOptOut", 1, 0)
 				.End()
 
-				.BeginItem("Diagnostics Tracking Service")
-				.Explanation("Do not send data about functional issues to Microsoft")
+				.BeginItem("Send data about functional issues to Microsoft")
 				.Service("DiagTrack", ServiceConfiguration.Disabled, new ServiceConfiguration(ServiceStartup.Automatic, ServiceStatus.Started) )
 				.End()
 
-				.BeginItem("Feedback")
-				.Explanation("Never ask for feedback")
+				.BeginItem("Ask for feedback")
 				.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf\Rules", "NumberOfSIUFInPeriod", 0, 1)
 				.End()
 
@@ -41,37 +36,31 @@ namespace Dominator.Windows10.Settings
 				.End()
 			*/
 
-				.BeginItem("WAP Push Message Routing Service")
-				.Explanation("Do not log keystrokes")
+				.BeginItem("Log keystrokes (WAP Push Message Routing Service)")
 				.Service("dmwappushsvc", ServiceConfiguration.Disabled, new ServiceConfiguration(ServiceStartup.Automatic, ServiceStatus.Started) )
 				.End()
 
 				.BeginGroup("Telemetry")
 				.Explanation("Microsoft telemetry data collection")
 
-					.BeginItem("Telemetry Collection")	
-					.Explanation("Do not collect telemetry data")
+					.BeginItem("Collect telemetry data")
 					.RegistryValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection", "AllowTelemetry", 0, 1)
 					.End()
 
-					.BeginItem("Telemetry URLs")
-					.Explanation("Block all Microsoft telemetry URLs in the system's hosts file")
+					.BeginItem("Allow this PC to connect to Microsoft telemetry servers")
 					.Hosts("Settings/telemetry.txt")
 					.End()
 				.End()
 
 				.BeginGroup("Location")
-					.BeginItem("App Location")
-					.Explanation("Do not allow apps and services to request your location")
+					.BeginItem("Allow apps and services to request your location")
 					.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}", "Value", "Deny", "Allow")
 					.End()
 				.End()
 
-				.BeginItem("Bing Search")
-				.Explanation("Do not provide web results when I use the the Windows search bar")
+				.BeginItem("Provide web results when I use the Windows search bar")
 				.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Search", "BingSearchEnabled", 0, 1)
 				.End()
-
 
 			.End();
 	}

@@ -8,15 +8,13 @@ namespace Dominator.Windows10.Settings
 			.BeginGroup("Annoyances")
 			.Explanation("Settings that may cause annoying consequences")
 
-				.BeginItem("Skype Home and Advertising")
-				.Explanation("Block all Skype home and advertising URLs in the system's hosts file")
+				.BeginItem("Show Skype home and advertisements")
 				.Hosts("Settings/skype-ads.txt")
 				.End()
 
 				// https://techjourney.net/enable-or-disable-peer-to-peer-p2p-apps-updates-download-from-more-than-one-place-in-windows-10/
 
-				.BeginItem("Windows Update")
-				.Explanation("Never get updates from or send updates to other PCs")
+				.BeginItem("Get updates from or send updates to other PCs")
 				.RegistryValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config", "DODownloadMode", 0, 3)
 				.End()
 

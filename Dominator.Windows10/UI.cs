@@ -42,6 +42,7 @@ namespace Dominator.Windows10
 		public static UIElement ForItem(IDominatorItem item, IUIRegistrationContext context)
 		{
 			var panel = new StackPanel();
+			panel.Margin = new Thickness(0, 0, 0, 12);
 			var description = CreateDescription(item.Description);
 			panel.Children.Add(description);
 
@@ -103,10 +104,10 @@ namespace Dominator.Windows10
 			{
 				UncheckedContent = new Label
 				{
-					Content = "NOT OK",
+					Content = "YES",
 					Foreground = WhiteBrush
 				},
-				CheckedContent = "OK",
+				CheckedContent = "NO!",
 				Margin = new Thickness(4, 4, 0, 4)
 			};
 		
@@ -116,13 +117,15 @@ namespace Dominator.Windows10
 		public static UIElement CreateDescription(DominatorDescription description)
 		{
 			var panel = new StackPanel();
-			bool noTitle = description.Title == "";
+			var hasExplanation = description.Explanation != "";
 			var title = new Label
 			{
 				Content = description.Title,
-				FontSize = 20
+				// if there is no explanation, the title is the explanation
+				FontSize = hasExplanation ? 20 : 16
 			};
 			panel.Children.Add(title);
+
 			if (description.Explanation != "")
 			{
 				var expl = new Label
