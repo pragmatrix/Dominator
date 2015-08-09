@@ -89,6 +89,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Settings\All.cs" />
+    <Compile Include="Settings\Annoyances.cs" />
     <Compile Include="Tools\DisposeAction.cs" />
     <Compile Include="Tools\HostEntry.cs" />
     <Compile Include="Tools\HostLine.cs" />
