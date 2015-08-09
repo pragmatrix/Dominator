@@ -37,7 +37,7 @@ namespace Dominator.Windows10.Settings
 				.End()
 
 				.BeginItem("Telemetry")
-				.Explanation("Block all Microsoft Telemetry URLs in the hosts file")
+				.Explanation("Block all Microsoft telemetry URLs in the system's hosts file")
 				.Hosts("Settings/telemetry.txt")
 				.End()
 
