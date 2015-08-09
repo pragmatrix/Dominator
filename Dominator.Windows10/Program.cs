@@ -46,7 +46,7 @@ namespace Dominator.Windows10
 				WindowStartupLocation = WindowStartupLocation.CenterScreen,
 				Width = 640,
 				Height = 480,
-				Title = ApplicationName
+				Title = ApplicationName,
 			};
 
 			var allSettings = Settings.Settings.All;
@@ -61,6 +61,14 @@ namespace Dominator.Windows10
 					VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
 					Content = ui
 				};
+
+				window.Deactivated += (sender, eventArgs) => ui.IsEnabled = false;
+				window.Activated += (sender, eventArgs) =>
+				{
+					ui.IsEnabled = true;
+					controller.scheduleUpdateAllStates();
+				};
+
 				window.Content = container;
 				controller.scheduleUpdateAllStates();
 				app.Run(window);
