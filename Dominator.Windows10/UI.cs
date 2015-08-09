@@ -101,7 +101,7 @@ namespace Dominator.Windows10
 		{
 			var sw = new HorizontalToggleSwitch
 			{
-				UncheckedContent = new Label()
+				UncheckedContent = new Label
 				{
 					Content = "NOT OK",
 					Foreground = WhiteBrush
@@ -117,7 +117,7 @@ namespace Dominator.Windows10
 		public static UIElement CreateDescription(DominatorDescription description)
 		{
 			var panel = new StackPanel();
-			var title = new Label()
+			var title = new Label
 			{
 				Content = description.Title,
 				FontSize = 20
@@ -125,7 +125,7 @@ namespace Dominator.Windows10
 			panel.Children.Add(title);
 			if (description.Explanation != "")
 			{
-				var expl = new Label()
+				var expl = new Label
 				{
 					Content = description.Explanation
 				};
