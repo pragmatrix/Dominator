@@ -102,11 +102,7 @@ namespace Dominator.Windows10
 		{
 			var sw = new HorizontalToggleSwitch
 			{
-				UncheckedContent = new Label
-				{
-					Content = "YES",
-					Foreground = WhiteBrush
-				},
+				UncheckedContent = "YES",
 				CheckedContent = "NO!",
 				Margin = new Thickness(4, 4, 0, 4)
 			};
