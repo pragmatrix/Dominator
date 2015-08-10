@@ -11,7 +11,7 @@ namespace Dominator.Windows10.Settings
 		const string OptionNotFoundMessage = "Option not found. Evil defaults may apply.";
 		const string ValueNotRecognizedMessage = "Option value is {0} and probably safe to change.";
 
-		static ItemBuilder RegistryValue(this ItemBuilder dsl, string key, string valueName, uint dominatedValue, uint submissiveValue)
+		static ItemBuilder RegistryValue(this ItemBuilder dsl, string key, string valueName, int dominatedValue, int submissiveValue, DominatorState? optionNotFound = null)
 		{
 			return dsl
 				.Setter(
@@ -19,11 +19,10 @@ namespace Dominator.Windows10.Settings
 				.Getter(() =>
 				{
 					var value = Registry.GetValue(key, valueName, null);
-
 					if (!(value is int))
-						return DominatorState.Indetermined(OptionNotFoundMessage);
-					
-					var v = (uint)(int)value;
+						return optionNotFound ?? DominatorState.Indetermined(OptionNotFoundMessage);
+
+					var v = (int)value;
 					if (v == dominatedValue)
 						return DominatorState.Dominated();
 					if (v == submissiveValue)
@@ -35,7 +34,7 @@ namespace Dominator.Windows10.Settings
 		const string HKLM = "HKEY_LOCAL_MACHINE";
 		const string HKCU = "HKEY_CURRENT_USER";
 
-		static ItemBuilder RegistryUserValueWithHKLMDefault(this ItemBuilder dsl, string key, string valueName, uint dominatedValue, uint submissiveValue)
+		static ItemBuilder RegistryUserValueWithHKLMDefault(this ItemBuilder dsl, string key, string valueName, int dominatedValue, int submissiveValue)
 		{
 			return dsl
 				.Setter(
@@ -46,7 +45,7 @@ namespace Dominator.Windows10.Settings
 					if (!(value is int))
 						return DominatorState.Indetermined(OptionNotFoundMessage);
 
-					var v = (uint)(int)value;
+					var v = (int)value;
 					if (v == dominatedValue)
 						return DominatorState.Dominated();
 					if (v == submissiveValue)
