@@ -56,7 +56,7 @@ namespace Dominator.Windows10.Settings
 		const string ServiceDoesNotExist = "Service is not installed.";
 		const string ServiceStateNotRecognized = "Service status is not recognized, but safe to change.";
 
-		public static ItemBuilder Service(this ItemBuilder dsl, string name, ServiceConfiguration dominate, ServiceConfiguration makeSubmissive)
+		public static ItemBuilder Service(this ItemBuilder dsl, string name, ServiceStartup dominate, ServiceStartup makeSubmissive)
 		{
 			return dsl
 				.Setter(
@@ -69,13 +69,13 @@ namespace Dominator.Windows10.Settings
 					{
 						var configuration = ServiceTools.TryGetConfiguration(name);
 						if (configuration == null)
-							return (dominate.Startup == ServiceStartup.Disabled)
+							return (dominate == ServiceStartup.Disabled)
 								? DominatorState.Dominated(ServiceDoesNotExist)
 								: DominatorState.Indetermined(ServiceStateNotRecognized);
 
-						if (configuration == dominate)
+						if (configuration.Value.Startup == dominate)
 							return DominatorState.Dominated();
-						if (configuration == makeSubmissive)
+						if (configuration.Value.Startup == makeSubmissive)
 							return DominatorState.Submissive();
 
 						return DominatorState.Indetermined("Service status is not recognized, but safe to change.");

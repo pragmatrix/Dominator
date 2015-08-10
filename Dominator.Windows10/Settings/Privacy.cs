@@ -22,7 +22,7 @@ namespace Dominator.Windows10.Settings
 				.End()
 
 				.BeginItem("Send data about functional issues to Microsoft (Diagnostics Tracking Service)")
-				.Service("DiagTrack", ServiceConfiguration.Disabled, new ServiceConfiguration(ServiceStartup.Automatic, ServiceStatus.Started) )
+				.Service("DiagTrack", ServiceStartup.Disabled, ServiceStartup.Automatic)
 				.End()
 
 				.BeginItem("Ask for feedback")
@@ -37,7 +37,7 @@ namespace Dominator.Windows10.Settings
 			*/
 
 				.BeginItem("Log keystrokes (WAP Push Message Routing Service)")
-				.Service("dmwappushservice", ServiceConfiguration.Disabled, new ServiceConfiguration(ServiceStartup.Automatic, ServiceStatus.Started) )
+				.Service("dmwappushservice", ServiceStartup.Disabled, ServiceStartup.Automatic)
 				.End()
 
 				.BeginGroup("Telemetry")

@@ -16,14 +16,14 @@ namespace Dominator.Tests
 		[Test]
 		public void Existing()
 		{
-			bool shouldExist = ServiceTools.IsExisting("cdfs");
+			bool shouldExist = ServiceTools.IsInstalled("cdfs");
 			Assert.True(shouldExist);
 		}
 
 		[Test]
 		public void NotExisting()
 		{
-			bool shouldNotExist = ServiceTools.IsExisting("no_known_service_has_this_name");
+			bool shouldNotExist = ServiceTools.IsInstalled("no_known_service_has_this_name");
 			Assert.False(shouldNotExist);
 		}
 
@@ -38,7 +38,7 @@ namespace Dominator.Tests
 		public void StopAndStart()
 		{
 			// Diagnostic Policy Service
-			Assert.That(ServiceTools.IsExisting("DPS"));
+			Assert.That(ServiceTools.IsInstalled("DPS"));
 			Assert.That(ServiceTools.Status("DPS"), Is.EqualTo(ServiceControllerStatus.Running));
 			ServiceTools.Stop("DPS", TimeSpan.FromMilliseconds(5000));
 			ServiceTools.Start("DPS", TimeSpan.FromMilliseconds(5000));

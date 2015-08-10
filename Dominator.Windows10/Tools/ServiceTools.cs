@@ -7,22 +7,27 @@ namespace Dominator.Windows10.Tools
 {
 	static class ServiceTools
 	{
-		public static void Configure(string name, ServiceConfiguration config)
+		public static void Configure(string name, ServiceStartup startup)
 		{
-			if (!IsExisting(name))
-				return;
+			if (!IsInstalled(name))
+				throw new Exception("Service {name} is not installed. ");
 
-			SetServiceStartup(name, config.Startup);
-			SetServiceStatus(name, config.Status);
+			if (startup == ServiceStartup.Disabled)
+				SetServiceStatus(name, ServiceStatus.Stopped);
+
+			SetServiceStartup(name, startup);
+
+			if (startup == ServiceStartup.Automatic)
+				SetServiceStatus(name, ServiceStatus.Started);
 		}
 
 		public static ServiceConfiguration? TryGetConfiguration(string name)
 		{
-			if (!IsExisting(name))
+			if (!IsInstalled(name))
 				return null;
 			var startup = TryGetServiceStartup(name);
 			if (startup == null)
-				throw new Exception($"Service {name} exists, but Startup is not configured");
+				throw new Exception($"Service {name} is installed, but its startup option is not configured.");
 			var status = Status(name);
 			return new ServiceConfiguration(startup.Value, ToServiceStatus(status));
 		}
@@ -40,7 +45,7 @@ namespace Dominator.Windows10.Tools
 			}
 		}
 
-		public static bool IsExisting(string name)
+		public static bool IsInstalled(string name)
 		{
 			return Registry.GetValue(mkServiceKey(name), "ImagePath", null) != null;
 		}
