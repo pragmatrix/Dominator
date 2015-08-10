@@ -18,7 +18,7 @@ namespace Dominator.Windows10
 		public static UIElement ForGroup(IDominatorGroup group, IUIRegistrationContext context)
 		{
 			var panel = new StackPanel();
-			var description = CreateDescription(group.Description);
+			var description = CreateDescription(group.Description, forGroup: true);
 			panel.Children.Add(description);
 
 			var nestedStackPanel = new StackPanel
@@ -37,25 +37,27 @@ namespace Dominator.Windows10
 		}
 
 		static readonly Brush RedBrush = new SolidColorBrush(Colors.Red);
+		const int DefaultMargin = 6;
 
 		public static UIElement ForItem(IDominatorItem item, IUIRegistrationContext context)
 		{
 			var panel = new StackPanel
 			{
-				Margin = new Thickness(0, 0, 0, 12)
+				Margin = new Thickness(0, 0, 0, DefaultMargin * 2)
 			};
-			var description = CreateDescription(item.Description);
+			var description = CreateDescription(item.Description, forGroup: false);
 			panel.Children.Add(description);
 
 			var switchPanel = new DockPanel();
 			var sw = createSwitch();
 			switchPanel.Children.Add(sw);
-			var errorLabel = new Label
-			{
-				Content = "ErrorText",
-				VerticalAlignment = VerticalAlignment.Center,
-				Foreground = RedBrush
-			};
+			// we don't want to use actual Label controls, because they parse '_' underscores as
+			// Alt Key shortcuts.
+			var errorLabel = CreateTextBlock("");
+			errorLabel.VerticalAlignment = VerticalAlignment.Center;
+			errorLabel.Foreground = RedBrush;
+			errorLabel.Margin = new Thickness(DefaultMargin*2, DefaultMargin, DefaultMargin, DefaultMargin);
+
 			switchPanel.Children.Add(errorLabel);
 
 			// argh, that **** calls us back when we change the state manually.
@@ -92,7 +94,7 @@ namespace Dominator.Windows10
 							break;
 					}
 
-					errorLabel.Content = state.Error_ != null ? state.Error_.Message : "";
+					errorLabel.Text = state.Error_ != null ? state.Error_.Message : "";
 				});
 
 			panel.Children.Add(switchPanel);
@@ -105,33 +107,37 @@ namespace Dominator.Windows10
 			{
 				UncheckedContent = "YES",
 				CheckedContent = "NO!",
-				Margin = new Thickness(4, 4, 0, 4)
+				Margin = new Thickness(DefaultMargin, DefaultMargin, 0, DefaultMargin)
 			};
 		
 			return sw;
 		}
 
-		public static UIElement CreateDescription(DominatorDescription description)
+		public static UIElement CreateDescription(DominatorDescription description, bool forGroup)
 		{
 			var panel = new StackPanel();
 			var hasExplanation = description.Explanation != "";
-			var title = new Label
-			{
-				Content = description.Title,
-				// if there is no explanation, the title is the explanation
-				FontSize = hasExplanation ? 20 : 16
-			};
+			var title = CreateTextBlock(description.Title);
+			// if there is no explanation, the title is the explanation
+			title.FontSize = hasExplanation || forGroup ? 22 : 16;
 			panel.Children.Add(title);
 
 			if (description.Explanation != "")
 			{
-				var expl = new Label
-				{
-					Content = description.Explanation
-				};
-				panel.Children.Add(expl);
+				var explanationLabel = CreateTextBlock(description.Explanation);
+				panel.Children.Add(explanationLabel);
 			}
 			return panel;
+		}
+
+		public static TextBlock CreateTextBlock(string text)
+		{
+			return new TextBlock
+			{
+				Margin = new Thickness(DefaultMargin),
+				Text = text,
+				TextWrapping = TextWrapping.WrapWithOverflow
+			};
 		}
 	}
 
