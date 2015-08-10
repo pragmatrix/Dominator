@@ -21,7 +21,7 @@ namespace Dominator.Windows10.Settings
 				.RegistryValue(@"HKEY_CURRENT_USER\Control Panel\International\User Profile", "HttpAcceptLanguageOptOut", 1, 0)
 				.End()
 
-				.BeginItem("Send data about functional issues to Microsoft")
+				.BeginItem("Send data about functional issues to Microsoft (Diagnostics Tracking Service)")
 				.Service("DiagTrack", ServiceConfiguration.Disabled, new ServiceConfiguration(ServiceStartup.Automatic, ServiceStatus.Started) )
 				.End()
 
@@ -37,7 +37,7 @@ namespace Dominator.Windows10.Settings
 			*/
 
 				.BeginItem("Log keystrokes (WAP Push Message Routing Service)")
-				.Service("dmwappushsvc", ServiceConfiguration.Disabled, new ServiceConfiguration(ServiceStartup.Automatic, ServiceStatus.Started) )
+				.Service("dmwappushservice", ServiceConfiguration.Disabled, new ServiceConfiguration(ServiceStartup.Automatic, ServiceStatus.Started) )
 				.End()
 
 				.BeginGroup("Telemetry")
