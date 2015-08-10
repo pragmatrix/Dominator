@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Security.Principal;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -8,17 +10,23 @@ namespace Dominator.Windows10
 {
 	static class Program
 	{
+		static readonly string ApplicationName = makeApplicationName();
+		const string ProjectIssuesURL = "https://github.com/pragmatrix/Dominator/issues";
+
 		[STAThread]
 		public static int Main(string[] args)
 		{
 			try
 			{
+				if (!TryRunAsAdministrator())
+					return 0;
+
 				ProtectedMain(args);
 				return 0;
 			}
 			catch (Exception e)
 			{
-				Console.Error.WriteLine(e.Message);
+				MessageBox.Show($"Sorry, {ApplicationName} crashed, please open an issue at\n\n{ProjectIssuesURL}\n\nError Information:\n\n{e}", ApplicationName);
 				return 5;
 			}
 		}
@@ -63,7 +71,37 @@ namespace Dominator.Windows10
 			}
 		}
 
-		static readonly string ApplicationName = makeApplicationName();
+		static bool TryRunAsAdministrator()
+		{
+			if (IsRunAsAdministrator())
+				return true;
+
+			var processInfo = new ProcessStartInfo(Assembly.GetExecutingAssembly().CodeBase)
+			{
+				UseShellExecute = true,
+				Verb = "runas"
+			};
+
+			try
+			{
+				Process.Start(processInfo);
+				return false;
+			}
+			catch (Exception)
+			{
+				// The user did not allow the application to run as administrator
+				MessageBox.Show($"Sorry, {ApplicationName} must be run as Administrator.");
+				return false;
+			}
+		}
+
+		private static bool IsRunAsAdministrator()
+		{
+			var wi = WindowsIdentity.GetCurrent();
+			var wp = new WindowsPrincipal(wi);
+
+			return wp.IsInRole(WindowsBuiltInRole.Administrator);
+		}
 
 		static string makeApplicationName()
 		{
