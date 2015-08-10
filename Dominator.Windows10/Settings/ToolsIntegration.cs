@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Dominator.Net;
 using Dominator.Windows10.Tools;
 using Microsoft.Win32;
@@ -10,8 +11,10 @@ namespace Dominator.Windows10.Settings
 		const string OptionNotFoundMessage = "Option not found. Evil defaults may apply.";
 		const string ValueNotRecognizedMessage = "Option value is {0} and probably safe to change.";
 
-		static ItemBuilder RegistryValue(this ItemBuilder dsl, string key, string valueName, int dominatedValue, int submissiveValue, DominatorState? optionNotFound = null)
+		static ItemBuilder RegistryValue(this ItemBuilder dsl, string key, string valueName, int dominatedValue, int submissiveValue, DominatorState? optionNotFound = null, Func<int, bool> alsoTreatAsSubmissive = null)
 		{
+			Func<int, bool> isTreatedAsSubmissive = v => v == submissiveValue || (alsoTreatAsSubmissive != null && alsoTreatAsSubmissive(v));
+				
 			return dsl
 				.Setter(
 					action => Registry.SetValue(key, valueName, action == DominationAction.Dominate ? dominatedValue : submissiveValue, RegistryValueKind.DWord))
@@ -24,7 +27,7 @@ namespace Dominator.Windows10.Settings
 					var v = (int)value;
 					if (v == dominatedValue)
 						return DominatorState.Dominated();
-					if (v == submissiveValue)
+					if (isTreatedAsSubmissive(v))
 						return DominatorState.Submissive();
 					return DominatorState.Indetermined(string.Format(ValueNotRecognizedMessage, v));
 				});

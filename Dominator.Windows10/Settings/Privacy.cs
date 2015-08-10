@@ -43,9 +43,9 @@ namespace Dominator.Windows10.Settings
 				.BeginGroup("Telemetry")
 				.Explanation("Microsoft telemetry data collection")
 
-					// Value may be set to 0 - 3, should get special treatment. Key always exists.
+					// Value is set to 3 in Express Settings and 2 in Custom Settings. Key always exists.
 					.BeginItem("Collect telemetry data")
-					.RegistryValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection", "AllowTelemetry", 0, 1)
+					.RegistryValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection", "AllowTelemetry", 0, 1, alsoTreatAsSubmissive: v => v >= 1 && v <=3)
 					.End()
 
 					.BeginItem("Allow this PC to connect to Microsoft telemetry servers")
