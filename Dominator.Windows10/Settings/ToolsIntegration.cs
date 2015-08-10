@@ -32,6 +32,38 @@ namespace Dominator.Windows10.Settings
 				});
 		}
 
+		const string HKLM = "HKEY_LOCAL_MACHINE";
+		const string HKCU = "HKEY_CURRENT_USER";
+
+		static ItemBuilder RegistryUserValueWithHKLMDefault(this ItemBuilder dsl, string key, string valueName, uint dominatedValue, uint submissiveValue)
+		{
+			return dsl
+				.Setter(
+					action => Registry.SetValue(userKey(key), valueName, action == DominationAction.Dominate ? dominatedValue : submissiveValue, RegistryValueKind.DWord))
+				.Getter(() =>
+				{
+					var value = tryGetUserOrMachineValue(key, valueName);
+					if (!(value is int))
+						return DominatorState.Indetermined(OptionNotFoundMessage);
+
+					var v = (uint)(int)value;
+					if (v == dominatedValue)
+						return DominatorState.Dominated();
+					if (v == submissiveValue)
+						return DominatorState.Submissive();
+					return DominatorState.Indetermined(string.Format(ValueNotRecognizedMessage, v));
+				});
+		}
+
+		static object tryGetUserOrMachineValue(string key, string valueName)
+		{
+			var userValue = Registry.GetValue(userKey(key), valueName, null);
+			return userValue ?? Registry.GetValue(machineKey(key), valueName, null);
+		}
+
+		static string machineKey(string key) => HKLM + @"\" + key;
+		static string userKey(string key) => HKCU + @"\" + key;
+
 		static ItemBuilder RegistryValue(this ItemBuilder dsl, string key, string valueName, string dominatedValue, string submissiveValue)
 		{
 			return dsl

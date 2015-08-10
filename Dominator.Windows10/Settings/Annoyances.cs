@@ -14,6 +14,7 @@ namespace Dominator.Windows10.Settings
 
 				// https://techjourney.net/enable-or-disable-peer-to-peer-p2p-apps-updates-download-from-more-than-one-place-in-windows-10/
 
+				// this registry key is not set with express settings, and but delivery optimization is enabled.
 				.BeginItem("Get updates from or send updates to other PCs")
 				.RegistryValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config", "DODownloadMode", 0, 3)
 				.End()
