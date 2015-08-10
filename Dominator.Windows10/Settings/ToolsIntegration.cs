@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Dominator.Net;
 using Dominator.Windows10.Tools;
 using Microsoft.Win32;
@@ -7,7 +8,9 @@ namespace Dominator.Windows10.Settings
 {
 	static partial class Settings
 	{
-		static ItemBuilder RegistryValue(this ItemBuilder dsl, string key, string valueName, uint dominatedValue, uint submissiveValue, DominatorState entryMissingState = DominatorState.Indetermined)
+		const string QueryFailedErrorMessage = "Query failed. Evil defaults may apply.";
+
+		static ItemBuilder RegistryValue(this ItemBuilder dsl, string key, string valueName, uint dominatedValue, uint submissiveValue, DominatorState? entryMissingState = null)
 		{
 			return dsl
 				.Setter(
@@ -15,8 +18,13 @@ namespace Dominator.Windows10.Settings
 				.Getter(() =>
 				{
 					var value = Registry.GetValue(key, valueName, null);
+
 					if (!(value is int))
-						return entryMissingState;
+						if (entryMissingState != null)
+							return entryMissingState.Value;
+						else
+							throw new Exception(QueryFailedErrorMessage);
+
 					var v = (uint)(int)value;
 					if (v == dominatedValue)
 						return DominatorState.Dominated;
@@ -26,7 +34,7 @@ namespace Dominator.Windows10.Settings
 				});
 		}
 
-		static ItemBuilder RegistryValue(this ItemBuilder dsl, string key, string valueName, string dominatedValue, string submissiveValue, DominatorState entryMissingState = DominatorState.Indetermined)
+		static ItemBuilder RegistryValue(this ItemBuilder dsl, string key, string valueName, string dominatedValue, string submissiveValue, DominatorState? entryMissingState = null)
 		{
 			return dsl
 				.Setter(
@@ -34,8 +42,13 @@ namespace Dominator.Windows10.Settings
 				.Getter(() =>
 				{
 					var value = Registry.GetValue(key, valueName, null);
+
 					if (!(value is string))
-						return entryMissingState;
+						if (entryMissingState != null)
+							return entryMissingState.Value;
+						else
+							throw new Exception(QueryFailedErrorMessage);
+
 					var v = (string)value;
 					if (v == dominatedValue)
 						return DominatorState.Dominated;
