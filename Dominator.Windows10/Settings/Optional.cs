@@ -9,7 +9,8 @@ namespace Dominator.Windows10.Settings
 			.Explanation("Some of them are actually useful")
 			
 				.BeginItem("Turn on SmartScreen Filter to check web content (URLs) that Windows Store apps use")
-				.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost", "EnableWebContentEvaluation", 0, 1, entryMissingState : DominatorState.Dominated)
+				// SmartScreen has a HKEY_LOCAL_MACHINE backing field.
+				.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost", "EnableWebContentEvaluation", 0, 1)
 				.End()
 
 			.End();

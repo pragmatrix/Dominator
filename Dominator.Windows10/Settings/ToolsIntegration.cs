@@ -58,6 +58,8 @@ namespace Dominator.Windows10.Settings
 				});
 		}
 
+
+
 		public static ItemBuilder Service(this ItemBuilder dsl, string name, ServiceConfiguration dominate, ServiceConfiguration makeSubmissive)
 		{
 			return dsl
