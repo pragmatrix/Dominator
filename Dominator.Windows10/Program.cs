@@ -5,6 +5,8 @@ using System.Reflection;
 using System.Security.Principal;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using Dominator.Windows10.Tools;
 
 namespace Dominator.Windows10
 {
@@ -37,6 +39,7 @@ namespace Dominator.Windows10
 				throw new InvalidOperationException("no support for arguments yet!");
 
 			var app = new Application();
+
 			var window = new Window
 			{
 				WindowStartupLocation = WindowStartupLocation.CenterScreen,
@@ -44,6 +47,10 @@ namespace Dominator.Windows10
 				Height = 480,
 				Title = ApplicationName,
 			};
+
+			// optimize text quality on low resolution screens.
+			if (DPI.Display < 125)
+				TextOptions.SetTextFormattingMode(window, TextFormattingMode.Display);
 
 			var allSettings = Settings.Settings.All;
 

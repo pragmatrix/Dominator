@@ -111,6 +111,7 @@
     <Compile Include="Settings\All.cs" />
     <Compile Include="Settings\Annoyances.cs" />
     <Compile Include="Tools\DisposeAction.cs" />
+    <Compile Include="Tools\DPI.cs" />
     <Compile Include="Tools\HostEntry.cs" />
     <Compile Include="Tools\HostLine.cs" />
     <Compile Include="Tools\HostsTools.cs" />
