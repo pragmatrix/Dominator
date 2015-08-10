@@ -8,15 +8,6 @@ namespace Dominator.Windows10
 {
 	static class Program
 	{
-		static readonly string ApplicationName = makeApplicationName();
-
-		static string makeApplicationName()
-		{
-			var assembly = typeof (Program).Assembly;
-			var product = (AssemblyProductAttribute) (assembly.GetCustomAttributes(typeof (AssemblyProductAttribute)).First());
-			return product.Product;
-		}
-
 		[STAThread]
 		public static int Main(string[] args)
 		{
@@ -70,6 +61,15 @@ namespace Dominator.Windows10
 				controller.scheduleUpdateAllStates();
 				app.Run(window);
 			}
+		}
+
+		static readonly string ApplicationName = makeApplicationName();
+
+		static string makeApplicationName()
+		{
+			var assembly = typeof(Program).Assembly;
+			var product = (AssemblyProductAttribute)(assembly.GetCustomAttributes(typeof(AssemblyProductAttribute)).First());
+			return product.Product;
 		}
 	}
 }
