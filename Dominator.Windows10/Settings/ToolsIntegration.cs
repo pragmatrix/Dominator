@@ -10,7 +10,7 @@ namespace Dominator.Windows10.Settings
 	{
 		const string QueryFailedErrorMessage = "Query failed. Evil defaults may apply.";
 
-		static ItemBuilder RegistryValue(this ItemBuilder dsl, string key, string valueName, uint dominatedValue, uint submissiveValue, DominatorState? entryMissingState = null)
+		static ItemBuilder RegistryValue(this ItemBuilder dsl, string key, string valueName, uint dominatedValue, uint submissiveValue)
 		{
 			return dsl
 				.Setter(
@@ -20,10 +20,7 @@ namespace Dominator.Windows10.Settings
 					var value = Registry.GetValue(key, valueName, null);
 
 					if (!(value is int))
-						if (entryMissingState != null)
-							return entryMissingState.Value;
-						else
-							throw new Exception(QueryFailedErrorMessage);
+						throw new Exception(QueryFailedErrorMessage);
 
 					var v = (uint)(int)value;
 					if (v == dominatedValue)
@@ -34,7 +31,7 @@ namespace Dominator.Windows10.Settings
 				});
 		}
 
-		static ItemBuilder RegistryValue(this ItemBuilder dsl, string key, string valueName, string dominatedValue, string submissiveValue, DominatorState? entryMissingState = null)
+		static ItemBuilder RegistryValue(this ItemBuilder dsl, string key, string valueName, string dominatedValue, string submissiveValue)
 		{
 			return dsl
 				.Setter(
@@ -44,10 +41,7 @@ namespace Dominator.Windows10.Settings
 					var value = Registry.GetValue(key, valueName, null);
 
 					if (!(value is string))
-						if (entryMissingState != null)
-							return entryMissingState.Value;
-						else
-							throw new Exception(QueryFailedErrorMessage);
+						throw new Exception(QueryFailedErrorMessage);
 
 					var v = (string)value;
 					if (v == dominatedValue)
