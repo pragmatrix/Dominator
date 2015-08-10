@@ -16,10 +16,10 @@ namespace Dominator.Windows10.Tools
 			SetServiceStatus(name, config.Status);
 		}
 
-		public static ServiceConfiguration GetConfiguration(string name)
+		public static ServiceConfiguration? TryGetConfiguration(string name)
 		{
 			if (!IsExisting(name))
-				return new ServiceConfiguration(ServiceStartup.Disabled, ServiceStatus.Stopped);
+				return null;
 			var startup = TryGetServiceStartup(name);
 			if (startup == null)
 				throw new Exception($"Service {name} exists, but Startup is not configured");

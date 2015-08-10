@@ -8,7 +8,8 @@ namespace Dominator.Windows10.Settings
 {
 	static partial class Settings
 	{
-		const string QueryFailedErrorMessage = "Query failed. Evil defaults may apply.";
+		const string OptionNotFoundMessage = "Option not found. Evil defaults may apply.";
+		const string ValueNotRecognizedMessage = "Option value is {0} and probably safe to change.";
 
 		static ItemBuilder RegistryValue(this ItemBuilder dsl, string key, string valueName, uint dominatedValue, uint submissiveValue)
 		{
@@ -20,14 +21,14 @@ namespace Dominator.Windows10.Settings
 					var value = Registry.GetValue(key, valueName, null);
 
 					if (!(value is int))
-						throw new Exception(QueryFailedErrorMessage);
-
+						return DominatorState.Indetermined(OptionNotFoundMessage);
+					
 					var v = (uint)(int)value;
 					if (v == dominatedValue)
-						return DominatorState.Dominated;
+						return DominatorState.Dominated();
 					if (v == submissiveValue)
-						return DominatorState.Submissive;
-					return DominatorState.Indetermined;
+						return DominatorState.Submissive();
+					return DominatorState.Indetermined(string.Format(ValueNotRecognizedMessage, v));
 				});
 		}
 
@@ -41,18 +42,19 @@ namespace Dominator.Windows10.Settings
 					var value = Registry.GetValue(key, valueName, null);
 
 					if (!(value is string))
-						throw new Exception(QueryFailedErrorMessage);
+						return DominatorState.Indetermined(OptionNotFoundMessage);
 
 					var v = (string)value;
 					if (v == dominatedValue)
-						return DominatorState.Dominated;
+						return DominatorState.Dominated();
 					if (v == submissiveValue)
-						return DominatorState.Submissive;
-					return DominatorState.Indetermined;
+						return DominatorState.Submissive();
+					return DominatorState.Indetermined(string.Format(ValueNotRecognizedMessage, v));
 				});
 		}
 
-
+		const string ServiceDoesNotExist = "Service is not installed.";
+		const string ServiceStateNotRecognized = "Service status is not recognized, but safe to change.";
 
 		public static ItemBuilder Service(this ItemBuilder dsl, string name, ServiceConfiguration dominate, ServiceConfiguration makeSubmissive)
 		{
@@ -65,12 +67,18 @@ namespace Dominator.Windows10.Settings
 				.Getter(
 					() =>
 					{
-						var configuration = ServiceTools.GetConfiguration(name);
+						var configuration = ServiceTools.TryGetConfiguration(name);
+						if (configuration == null)
+							return (dominate.Startup == ServiceStartup.Disabled)
+								? DominatorState.Dominated(ServiceDoesNotExist)
+								: DominatorState.Indetermined(ServiceStateNotRecognized);
+
 						if (configuration == dominate)
-							return DominatorState.Dominated;
+							return DominatorState.Dominated();
 						if (configuration == makeSubmissive)
-							return DominatorState.Submissive;
-						return DominatorState.Indetermined;
+							return DominatorState.Submissive();
+
+						return DominatorState.Indetermined("Service status is not recognized, but safe to change.");
 					});
 		}
 
@@ -82,8 +90,8 @@ namespace Dominator.Windows10.Settings
 					var hosts = HostsTools.ReadSystemHostsFile().SafeParseHostLines();
 					var blocked = HostsTools.ReadHostsFile(blockingFile).SafeParseHostLines().ExtractEntries();
 					return hosts.ContainsAllHostEntries(blocked) 
-						? DominatorState.Dominated 
-						: DominatorState.Submissive;
+						? DominatorState.Dominated()
+						: DominatorState.Submissive();
 				})
 				.Setter(action =>
 				{

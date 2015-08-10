@@ -2,11 +2,27 @@
 
 namespace Dominator.Net
 {
-	public enum DominatorState
+	public enum DominatorStateKind
 	{
 		Submissive,
 		Dominated,
 		Indetermined
+	}
+
+	public struct DominatorState
+	{
+		DominatorState(DominatorStateKind kind, string message = "")
+		{
+			Kind = kind;
+			Message = message;
+		}
+
+		public readonly DominatorStateKind Kind;
+		public readonly string Message;
+
+		public static DominatorState Submissive(string message = "") => new DominatorState(DominatorStateKind.Submissive, message);
+		public static DominatorState Dominated(string message = "") => new DominatorState(DominatorStateKind.Dominated, message);
+		public static DominatorState Indetermined(string message) => new DominatorState(DominatorStateKind.Indetermined , message );
 	}
 
 	public enum DominationAction

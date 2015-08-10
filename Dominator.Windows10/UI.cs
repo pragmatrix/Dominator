@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using Dominator.Net;
 using Dominator.Windows10.Tools;
 using ToggleSwitch;
@@ -56,9 +58,14 @@ namespace Dominator.Windows10
 			var errorLabel = CreateTextBlock("");
 			errorLabel.VerticalAlignment = VerticalAlignment.Center;
 			errorLabel.Foreground = RedBrush;
-			errorLabel.Margin = new Thickness(DefaultMargin*2, DefaultMargin, DefaultMargin, DefaultMargin);
+			errorLabel.Margin = new Thickness(DefaultMargin*2, 0, DefaultMargin, 0);
+
+			var messageLabel = CreateTextBlock("");
+			messageLabel.VerticalAlignment = VerticalAlignment.Center;
+			messageLabel.Margin = new Thickness(DefaultMargin * 2, 0, DefaultMargin, 0);
 
 			switchPanel.Children.Add(errorLabel);
+			switchPanel.Children.Add(messageLabel);
 
 			// argh, that **** calls us back when we change the state manually.
 			var section = new Soft.Section();
@@ -78,23 +85,39 @@ namespace Dominator.Windows10
 			context.registerFeedback(item,
 				state =>
 				{
-					switch (state.State)
+					bool error = state.Error_ != null;
+					if (error)
 					{
-						case DominatorState.Dominated:
+						errorLabel.Text = state.Error_.Message;
+					}
+					else
+					{
+						Debug.Assert(state.State_ != null);
+						switch (state.State_.Value.Kind)
+						{
+						case DominatorStateKind.Dominated:
 							using (section.Lock())
 								sw.IsChecked = true;
 							break;
-						case DominatorState.Submissive:
+						case DominatorStateKind.Submissive:
 							using (section.Lock())
 								sw.IsChecked = false;
-							break;
-						case DominatorState.Indetermined:
+							sw.UncheckedContent = "YES";
+							sw.UncheckedBackground = UncheckedBackgroundRed;
+						break;
+						case DominatorStateKind.Indetermined:
 							using (section.Lock())
 								sw.IsChecked = false;
-							break;
+							sw.UncheckedContent = "N/A";
+							sw.UncheckedBackground = UncheckedBackgroundOrange;
+						break;
+						}
+
+						messageLabel.Text = state.State_.Value.Message;
 					}
 
-					errorLabel.Text = state.Error_ != null ? state.Error_.Message : "";
+					errorLabel.Visibility = error ? Visibility.Visible : Visibility.Collapsed;
+					messageLabel.Visibility = error ? Visibility.Collapsed : Visibility.Visible;
 				});
 
 			panel.Children.Add(switchPanel);
@@ -112,6 +135,16 @@ namespace Dominator.Windows10
 		
 			return sw;
 		}
+
+		static readonly Brush UncheckedBackgroundOrange = new SolidColorBrush(Colors.Orange);
+		static readonly Brush UncheckedBackgroundRed = getOriginalUncheckedBrush();
+
+		static Brush getOriginalUncheckedBrush()
+		{
+			var sw = new HorizontalToggleSwitch();
+			return sw.UncheckedBackground;
+		}
+
 
 		public static UIElement CreateDescription(DominatorDescription description, bool forGroup)
 		{

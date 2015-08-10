@@ -12,18 +12,21 @@ namespace Dominator.Net
 		}
 
 		public DominationState(Exception error)
-			: this(DominatorState.Indetermined, error, Enumerable.Empty<DominationState>())
+			: this(DominatorState.Indetermined(""), error, Enumerable.Empty<DominationState>())
 		{}
 
+		public DominationState(DominatorState groupState, IEnumerable<DominationState> nested)
+			: this(groupState, null, nested)
+		{}
 
-		public DominationState(DominatorState state, Exception error_, IEnumerable<DominationState> nested)
+		DominationState(DominatorState? state, Exception error_, IEnumerable<DominationState> nested)
 		{
-			State = state;
+			State_ = state;
 			Error_ = error_;
 			Nested = nested;
 		}
 
-		public readonly DominatorState State;
+		public readonly DominatorState? State_;
 		public readonly Exception Error_;
 		public readonly IEnumerable<DominationState> Nested;
 	}
@@ -59,21 +62,21 @@ namespace Dominator.Net
 		static DominationState QueryGroupState(IDominatorGroup group)
 		{
 			var nested = group.Nested.Select(QueryState).ToArray();
-			var state = CumulativeState(nested.Select(ns => ns.State));
-			return new DominationState(state, null, nested);
+			var state = CumulativeState(nested.Select(ns => ns.State_));
+			return new DominationState(state, nested);
 		}
 
-		public static DominatorState CumulativeState(this IEnumerable<DominatorState> states)
+		public static DominatorState CumulativeState(this IEnumerable<DominatorState?> states)
 		{
-			var allDominated = states.All(state => state == DominatorState.Dominated);
+			var allDominated = states.All(state_ => state_ != null && state_.Value.Kind == DominatorStateKind.Dominated);
 			if (allDominated)
-				return DominatorState.Dominated;
+				return DominatorState.Dominated();
 
-			var allSubmissive = states.All(state => state == DominatorState.Submissive);
+			var allSubmissive = states.All(state_ => state_ != null && state_.Value.Kind == DominatorStateKind.Submissive);
 			if (allSubmissive)
-				return DominatorState.Submissive;
+				return DominatorState.Submissive();
 
-			return DominatorState.Indetermined;
+			return DominatorState.Indetermined("");
 		}
 	}
 }
