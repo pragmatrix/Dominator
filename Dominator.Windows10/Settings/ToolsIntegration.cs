@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Dominator.Net;
 using Dominator.Windows10.Tools;
 using Microsoft.Win32;
