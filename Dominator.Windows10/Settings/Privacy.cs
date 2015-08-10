@@ -31,7 +31,7 @@ namespace Dominator.Windows10.Settings
 
 			/*
 				.BeginItem("Diagnostics Tracking Log")
-				.Explanation("Keep the log file about functional issues empty")
+				.Explanation("Keep the log file about functional issues")
 				.File(Environment.SpecialFolder.CommonApplicationData, @"Microsoft\Diagnosis\ETLLogs\AutoLogger\AutoLogger-Diagtrack-Listener.etl", FileConfiguration.MissingOrEmpty, FileConfiguration.ExistingAndNotEmpty)
 				.End()
 			*/
