@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Dominator.Windows10.Tools;
+using static Dominator.Windows10.Localization.Application;
 
 namespace Dominator.Windows10
 {
@@ -28,7 +29,8 @@ namespace Dominator.Windows10
 			}
 			catch (Exception e)
 			{
-				MessageBox.Show($"Sorry, {ApplicationName} crashed, please open an issue at\n\n{ProjectIssuesURL}\n\nError Information:\n\n{e}", ApplicationName);
+				var text = string.Format(M_Sorry___0_crashed, ApplicationName, ProjectIssuesURL, e);
+				MessageBox.Show(text, ApplicationName);
 				return 5;
 			}
 		}
@@ -36,7 +38,7 @@ namespace Dominator.Windows10
 		static void ProtectedMain(string[] args)
 		{
 			if (args.Length != 0)
-				throw new InvalidOperationException("no support for arguments yet!");
+				throw new InvalidOperationException(M_No_support_for_command_lines_arguments_yet_);
 
 			var app = new Application();
 
@@ -97,7 +99,7 @@ namespace Dominator.Windows10
 			catch (Exception)
 			{
 				// The user did not allow the application to run as administrator
-				MessageBox.Show($"Sorry, {ApplicationName} must be run as Administrator.");
+				MessageBox.Show(string.Format(M_Sorry___0__must_be_run_as_Administrator_, ApplicationName));
 				return false;
 			}
 		}

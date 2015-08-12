@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.ServiceProcess;
 using Microsoft.Win32;
+using static Dominator.Windows10.Tools.Localization.Tools;
 
 namespace Dominator.Windows10.Tools
 {
@@ -10,7 +11,7 @@ namespace Dominator.Windows10.Tools
 		public static void Configure(string name, ServiceStartup startup)
 		{
 			if (!IsInstalled(name))
-				throw new Exception("Service {name} is not installed. ");
+				throw new Exception(string.Format(M_Service__0__is_not_installed_, name));
 
 			if (startup == ServiceStartup.Disabled)
 				SetServiceStatus(name, ServiceStatus.Stopped);
@@ -27,7 +28,7 @@ namespace Dominator.Windows10.Tools
 				return null;
 			var startup = TryGetServiceStartup(name);
 			if (startup == null)
-				throw new Exception($"Service {name} is installed, but its startup option is not configured.");
+				throw new Exception(string.Format(M_Service__0__is_installed__but_its_startup_option_is_not_configured_, name));
 			var status = Status(name);
 			return new ServiceConfiguration(startup.Value, ToServiceStatus(status));
 		}
@@ -109,7 +110,7 @@ namespace Dominator.Windows10.Tools
 				sc.WaitForStatus(ServiceControllerStatus.Stopped, timeToWait);
 				Console.WriteLine(sc.Status);
 				if (sc.Status != ServiceControllerStatus.Stopped)
-					throw new Exception($"Failed to stop service {service}");
+					throw new Exception(string.Format(M_Failed_to_stop_service__0_, service));
 			}
 		}
 
@@ -122,7 +123,7 @@ namespace Dominator.Windows10.Tools
 				sc.Start();
 				sc.WaitForStatus(ServiceControllerStatus.Running, timeToWait);
 				if (sc.Status != ServiceControllerStatus.Running)
-					throw new Exception($"Failed to start service {service}");
+					throw new Exception(string.Format(M_Failed_to_start_service__0_, service));
 			}
 		}
 

@@ -3,13 +3,14 @@ using System.Linq;
 using Dominator.Net;
 using Dominator.Windows10.Tools;
 using Microsoft.Win32;
+using static Dominator.Windows10.Settings.Localization.Settings;
 
 namespace Dominator.Windows10.Settings
 {
 	static partial class Settings
 	{
-		const string OptionNotFoundMessage = "Option not found. Evil defaults may apply.";
-		const string ValueNotRecognizedMessage = "Option value is {0} and probably safe to change.";
+		static readonly string OptionNotFoundMessage = M_Option_not_found__Evil_defaults_may_apply;
+		static readonly string ValueNotRecognizedMessage = M_Option_value_is__0__and_probably_safe_to_change;
 
 		static ItemBuilder RegistryValue(this ItemBuilder dsl, string key, string valueName, int dominatedValue, int submissiveValue, DominatorState? optionNotFound = null, Func<int, bool> alsoTreatAsSubmissive = null)
 		{
@@ -86,8 +87,8 @@ namespace Dominator.Windows10.Settings
 				});
 		}
 
-		const string ServiceDoesNotExist = "Service is not installed.";
-		const string ServiceStateNotRecognized = "Service status is not recognized, but safe to change.";
+		static readonly string ServiceDoesNotExistMessage = M_Service_is_not_installed;
+		static readonly string ServiceStateNotRecognizedMessage = M_Service_status_is_not_recognized__but_safe_to_change;
 
 		public static ItemBuilder Service(this ItemBuilder dsl, string name, ServiceStartup dominate, ServiceStartup makeSubmissive)
 		{
@@ -103,15 +104,15 @@ namespace Dominator.Windows10.Settings
 						var configuration = ServiceTools.TryGetConfiguration(name);
 						if (configuration == null)
 							return (dominate == ServiceStartup.Disabled)
-								? DominatorState.Dominated(ServiceDoesNotExist)
-								: DominatorState.Indetermined(ServiceStateNotRecognized);
+								? DominatorState.Dominated(ServiceDoesNotExistMessage)
+								: DominatorState.Indetermined(ServiceStateNotRecognizedMessage);
 
 						if (configuration.Value.Startup == dominate)
 							return DominatorState.Dominated();
 						if (configuration.Value.Startup == makeSubmissive)
 							return DominatorState.Submissive();
 
-						return DominatorState.Indetermined("Service status is not recognized, but safe to change.");
+						return DominatorState.Indetermined(ServiceStateNotRecognizedMessage);
 					});
 		}
 

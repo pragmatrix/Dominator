@@ -1,31 +1,32 @@
 ﻿using Dominator.Net;
 using Dominator.Windows10.Tools;
+using static Dominator.Windows10.Settings.Localization.Settings;
 
 namespace Dominator.Windows10.Settings
 {
 	static partial class Settings
 	{
 		public static GroupBuilder PrivacySettings(this GroupBuilder dsl) => dsl
-			.BeginGroup("Privacy")
-			.Explanation("Settings that protect your privacy")
-				.BeginItem("Let apps use my advertising ID")
+			.BeginGroup(T_Privacy)
+			.Explanation(E_Settings_that_protect_your_privacy)
+				.BeginItem(E_Let_apps_use_my_advertising_ID)
 				.RegistryUserValueWithHKLMDefault(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo", "Enabled", 0, 1)
 				.End()
 
-				.BeginItem("Send Microsoft info about how I write")
+				.BeginItem(E_Send_Microsoft_info_about_how_I_write)
 				.RegistryUserValueWithHKLMDefault(@"SOFTWARE\Microsoft\Input\TIPC", "Enabled", 0, 1)
 				.End()
 
 				// no HKLM backing field, is on by default on Express Settings and Custom.
-				.BeginItem("Let websites provide locally relevant content by accessing my language list")
+				.BeginItem(E_Let_websites_provide_locally_relevant_content_by_accessing_my_language_list)
 				.RegistryValue(@"HKEY_CURRENT_USER\Control Panel\International\User Profile", "HttpAcceptLanguageOptOut", 1, 0, optionNotFound: DominatorState.Submissive())
 				.End()
 
-				.BeginItem("Send data about functional issues to Microsoft (Diagnostics Tracking Service)")
+				.BeginItem(E_Send_data_about_functional_issues_to_Microsoft)
 				.Service("DiagTrack", ServiceStartup.Disabled, ServiceStartup.Automatic)
 				.End()
 
-				.BeginItem("Ask for feedback")
+				.BeginItem(E_Ask_for_feedback)
 				.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf\Rules", "NumberOfSIUFInPeriod", 0, 1, optionNotFound: DominatorState.Submissive())
 				.End()
 
@@ -36,33 +37,33 @@ namespace Dominator.Windows10.Settings
 				.End()
 			*/
 
-				.BeginItem("Log keystrokes (WAP Push Message Routing Service)")
+				.BeginItem(E_Log_keystrokes)
 				.Service("dmwappushservice", ServiceStartup.Disabled, ServiceStartup.Automatic)
 				.End()
 
-				.BeginGroup("Telemetry")
-				.Explanation("Microsoft telemetry data collection")
+				.BeginGroup(T_Telemetry)
+				.Explanation(E_Microsoft_telemetry_data_collection)
 
 					// Value is set to 3 in Express Settings and 2 in Custom Settings. Key always exists.
-					.BeginItem("Collect telemetry data")
+					.BeginItem(E_Collect_telemetry_data)
 					.RegistryValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection", "AllowTelemetry", 0, 1, alsoTreatAsSubmissive: v => v >= 1 && v <=3)
 					.End()
 
-					.BeginItem("Allow this PC to connect to Microsoft telemetry servers")
+					.BeginItem(E_Allow_this_PC_to_connect_to_Microsoft_telemetry_servers)
 					.Hosts("Settings/telemetry.txt")
 					.End()
 				.End()
 
-				.BeginGroup("Location")
+				.BeginGroup(T_Location)
 
-					.BeginItem("Allow apps and services to request your location")
+					.BeginItem(E_Allow_apps_and_services_to_request_your_location)
 					.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}", "Value", "Deny", "Allow")
 					.End()
 				.End()
 
 				// Express Settings: the Search key exists in HKLM, but nothing is in there, and changing BingSearchEnabled does not have an
 				// effect when the user key is not set.
-				.BeginItem("Provide web results when I use the Windows search bar")
+				.BeginItem(E_Provide_web_results_when_I_use_the_Windows_search_bar)
 				.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Search", "BingSearchEnabled", 0, 1, optionNotFound: DominatorState.Submissive())
 				.End()
 

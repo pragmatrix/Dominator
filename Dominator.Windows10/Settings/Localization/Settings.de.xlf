@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="de" original="Settings.resx" tool-id="MultilingualAppToolkit" product-name="Dominator.Windows10" product-version="1.0.0.0" build-num="0">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="3.1.1250.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="Resx">
+        <trans-unit id="Resx/T_Privacy" translate="yes" xml:space="preserve">
+          <source>Privacy</source>
+          <target state="new">Privacy</target>
+        </trans-unit>
+        <trans-unit id="Resx/E_Allow_this_PC_to_connect_to_Microsoft_telemetry_servers" translate="yes" xml:space="preserve">
+          <source>Allow this PC to connect to Microsoft telemetry servers</source>
+          <target state="new">Allow this PC to connect to Microsoft telemetry servers</target>
+        </trans-unit>
+        <trans-unit id="Resx/T_Location" translate="yes" xml:space="preserve">
+          <source>Location</source>
+          <target state="new">Location</target>
+        </trans-unit>
+        <trans-unit id="Resx/E_Collect_telemetry_data" translate="yes" xml:space="preserve">
+          <source>Collect telemetry data</source>
+          <target state="new">Collect telemetry data</target>
+        </trans-unit>
+        <trans-unit id="Resx/E_Microsoft_telemetry_data_collection" translate="yes" xml:space="preserve">
+          <source>Microsoft telemetry data collection</source>
+          <target state="new">Microsoft telemetry data collection</target>
+        </trans-unit>
+        <trans-unit id="Resx/E_Log_keystrokes" translate="yes" xml:space="preserve">
+          <source>Log keystrokes (WAP Push Message Routing Service)</source>
+          <target state="new">Log keystrokes (WAP Push Message Routing Service)</target>
+        </trans-unit>
+        <trans-unit id="Resx/E_Ask_for_feedback" translate="yes" xml:space="preserve">
+          <source>Ask for feedback</source>
+          <target state="new">Ask for feedback</target>
+        </trans-unit>
+        <trans-unit id="Resx/E_Send_data_about_functional_issues_to_Microsoft" translate="yes" xml:space="preserve">
+          <source>Send data about functional issues to Microsoft (Diagnostics Tracking Service)</source>
+          <target state="new">Send data about functional issues to Microsoft (Diagnostics Tracking Service)</target>
+        </trans-unit>
+        <trans-unit id="Resx/E_Let_websites_provide_locally_relevant_content_by_accessing_my_language_list" translate="yes" xml:space="preserve">
+          <source>Let websites provide locally relevant content by accessing my language list</source>
+          <target state="new">Let websites provide locally relevant content by accessing my language list</target>
+        </trans-unit>
+        <trans-unit id="Resx/E_Send_Microsoft_info_about_how_I_write" translate="yes" xml:space="preserve">
+          <source>Send Microsoft info about how I write</source>
+          <target state="new">Send Microsoft info about how I write</target>
+        </trans-unit>
+        <trans-unit id="Resx/E_Let_apps_use_my_advertising_ID" translate="yes" xml:space="preserve">
+          <source>Let apps use my advertising ID</source>
+          <target state="new">Let apps use my advertising ID</target>
+        </trans-unit>
+        <trans-unit id="Resx/E_Settings_that_protect_your_privacy" translate="yes" xml:space="preserve">
+          <source>Settings that protect your privacy</source>
+          <target state="new">Settings that protect your privacy</target>
+        </trans-unit>
+        <trans-unit id="Resx/T_Telemetry" translate="yes" xml:space="preserve">
+          <source>Telemetry</source>
+          <target state="new">Telemetry</target>
+        </trans-unit>
+        <trans-unit id="Resx/M_Service_is_not_installed" translate="yes" xml:space="preserve">
+          <source>Service is not installed.</source>
+          <target state="new">Service is not installed.</target>
+        </trans-unit>
+        <trans-unit id="Resx/M_No_support_for_command_lines_arguments_yet_" translate="yes" xml:space="preserve">
+          <source>No support for command lines arguments yet!</source>
+          <target state="new">No support for command lines arguments yet!</target>
+        </trans-unit>
+        <trans-unit id="Resx/M_Service_status_is_not_recognized__but_safe_to_change" translate="yes" xml:space="preserve">
+          <source>Service status is not recognized, but safe to change.</source>
+          <target state="new">Service status is not recognized, but safe to change.</target>
+        </trans-unit>
+        <trans-unit id="Resx/M_Option_value_is__0__and_probably_safe_to_change" translate="yes" xml:space="preserve">
+          <source>Option value is {0} and probably safe to change.</source>
+          <target state="new">Option value is {0} and probably safe to change.</target>
+        </trans-unit>
+        <trans-unit id="Resx/M_Option_not_found__Evil_defaults_may_apply" translate="yes" xml:space="preserve">
+          <source>Option not found. Evil defaults may apply.</source>
+          <target state="new">Option not found. Evil defaults may apply.</target>
+        </trans-unit>
+        <trans-unit id="Resx/E_Manage_all_privacy_related_settings_in_one_place" translate="yes" xml:space="preserve">
+          <source>Manage all privacy related settings in one place</source>
+          <target state="new">Manage all privacy related settings in one place</target>
+        </trans-unit>
+        <trans-unit id="Resx/E_Get_updates_from_or_send_updates_to_other_PCs" translate="yes" xml:space="preserve">
+          <source>Get updates from or send updates to other PCs</source>
+          <target state="new">Get updates from or send updates to other PCs</target>
+        </trans-unit>
+        <trans-unit id="Resx/E_Show_Skype_home_and_advertisements" translate="yes" xml:space="preserve">
+          <source>Show Skype home and advertisements</source>
+          <target state="new">Show Skype home and advertisements</target>
+        </trans-unit>
+        <trans-unit id="Resx/E_Settings_that_may_cause_annoying_consequences" translate="yes" xml:space="preserve">
+          <source>Settings that may cause annoying consequences</source>
+          <target state="new">Settings that may cause annoying consequences</target>
+        </trans-unit>
+        <trans-unit id="Resx/T_Annoyances" translate="yes" xml:space="preserve">
+          <source>Annoyances</source>
+          <target state="new">Annoyances</target>
+        </trans-unit>
+        <trans-unit id="Resx/E_Turn_on_SmartScreen_Filter_to_check_web_content__URLs__that_Windows_Store_apps_use" translate="yes" xml:space="preserve">
+          <source>Turn on SmartScreen Filter to check web content (URLs) that Windows Store apps use</source>
+          <target state="new">Turn on SmartScreen Filter to check web content (URLs) that Windows Store apps use</target>
+        </trans-unit>
+        <trans-unit id="Resx/E_Some_of_them_are_actually_useful" translate="yes" xml:space="preserve">
+          <source>Some of them are actually useful</source>
+          <target state="new">Some of them are actually useful</target>
+        </trans-unit>
+        <trans-unit id="Resx/E_Provide_web_results_when_I_use_the_Windows_search_bar" translate="yes" xml:space="preserve">
+          <source>Provide web results when I use the Windows search bar</source>
+          <target state="new">Provide web results when I use the Windows search bar</target>
+        </trans-unit>
+        <trans-unit id="Resx/T_Optional_Protections" translate="yes" xml:space="preserve">
+          <source>Optional Protections</source>
+          <target state="new">Optional Protections</target>
+        </trans-unit>
+        <trans-unit id="Resx/E_Allow_apps_and_services_to_request_your_location" translate="yes" xml:space="preserve">
+          <source>Allow apps and services to request your location</source>
+          <target state="new">Allow apps and services to request your location</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

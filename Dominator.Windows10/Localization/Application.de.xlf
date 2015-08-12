@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="de" original="Application.resx" tool-id="MultilingualAppToolkit" product-name="Dominator.Windows10" product-version="1.0.0.0" build-num="0">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="3.1.1250.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="Resx">
+        <trans-unit id="Resx/M_Sorry___0__must_be_run_as_Administrator_" translate="yes" xml:space="preserve">
+          <source>Sorry, {0} must be run as Administrator.</source>
+          <target state="new">Sorry, {0} must be run as Administrator.</target>
+        </trans-unit>
+        <trans-unit id="Resx/M_Sorry___0_crashed" translate="yes" xml:space="preserve">
+          <source>Sorry, {0} crashed, please open an issue at
+
+{1}
+
+Error Information:
+
+{2}</source>
+          <target state="new">Sorry, {0} crashed, please open an issue at
+
+{1}
+
+Error Information:
+
+{2}</target>
+        </trans-unit>
+        <trans-unit id="Resx/M_No_support_for_command_lines_arguments_yet_" translate="yes" xml:space="preserve">
+          <source>No support for command lines arguments yet!</source>
+          <target state="new">No support for command lines arguments yet!</target>
+        </trans-unit>
+        <trans-unit id="Resx/L_N_A" translate="yes" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="Resx/L_NO_" translate="yes" xml:space="preserve">
+          <source>NO!</source>
+          <target state="new">NO!</target>
+        </trans-unit>
+        <trans-unit id="Resx/L_YES" translate="yes" xml:space="preserve">
+          <source>YES</source>
+          <target state="new">YES</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -31,6 +31,7 @@
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SupportedCultures>de</SupportedCultures>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -72,6 +73,9 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup Label="MultilingualAppToolkit">
+    <MultilingualAppToolkitVersion>3.0</MultilingualAppToolkitVersion>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -94,14 +98,14 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Localization\Application.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Application.resx</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -110,12 +114,22 @@
     </Compile>
     <Compile Include="Settings\All.cs" />
     <Compile Include="Settings\Annoyances.cs" />
+    <Compile Include="Settings\Localization\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Settings.resx</DependentUpon>
+    </Compile>
     <Compile Include="Tools\DisposeAction.cs" />
     <Compile Include="Tools\DPI.cs" />
     <Compile Include="Tools\HostEntry.cs" />
     <Compile Include="Tools\HostLine.cs" />
     <Compile Include="Tools\HostsTools.cs" />
     <Compile Include="Settings\Optional.cs" />
+    <Compile Include="Tools\Localization\Tools.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Tools.resx</DependentUpon>
+    </Compile>
     <Compile Include="Tools\ServiceConfiguration.cs" />
     <Compile Include="Tools\ServiceTools.cs" />
     <Compile Include="Settings\ToolsIntegration.cs" />
@@ -124,9 +138,36 @@
     <Compile Include="Tools\SoftSynchronization.cs" />
     <Compile Include="UI.cs" />
     <Compile Include="UIController.cs" />
-    <EmbeddedResource Include="Properties\Resources.resx">
+    <EmbeddedResource Include="Localization\Application.de.resx">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Application.de.xlf</DependentUpon>
+      <culture>de</culture>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Application.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <LastGenOutput>Application.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Localization\Settings.de.resx">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Settings.de.xlf</DependentUpon>
+      <culture>de</culture>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Localization\Settings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\Localization\Tools.de.resx">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Tools.de.xlf</DependentUpon>
+      <culture>de</culture>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\Localization\Tools.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Tools.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.manifest">
       <SubType>Designer</SubType>
@@ -171,7 +212,23 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <XliffResource Include="Localization\Application.de.xlf">
+      <Generator>XliffResxGenerator</Generator>
+      <LastGenOutput>Application.de.resx</LastGenOutput>
+    </XliffResource>
+    <XliffResource Include="Settings\Localization\Settings.de.xlf">
+      <Generator>XliffResxGenerator</Generator>
+      <LastGenOutput>Settings.de.resx</LastGenOutput>
+    </XliffResource>
+    <XliffResource Include="Tools\Localization\Tools.de.xlf">
+      <Generator>XliffResxGenerator</Generator>
+      <LastGenOutput>Tools.de.resx</LastGenOutput>
+    </XliffResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.ResxResources.targets" Label="MultilingualAppToolkit" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

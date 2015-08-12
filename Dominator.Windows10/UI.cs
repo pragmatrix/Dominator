@@ -7,6 +7,7 @@ using System.Windows.Media.Animation;
 using Dominator.Net;
 using Dominator.Windows10.Tools;
 using ToggleSwitch;
+using static Dominator.Windows10.Localization.Application;
 
 namespace Dominator.Windows10
 {
@@ -102,13 +103,13 @@ namespace Dominator.Windows10
 						case DominatorStateKind.Submissive:
 							using (section.Lock())
 								sw.IsChecked = false;
-							sw.UncheckedContent = "YES";
+							sw.UncheckedContent = L_YES;
 							sw.UncheckedBackground = UncheckedBackgroundRed;
 						break;
 						case DominatorStateKind.Indetermined:
 							using (section.Lock())
 								sw.IsChecked = false;
-							sw.UncheckedContent = "N/A";
+							sw.UncheckedContent = L_N_A;
 							sw.UncheckedBackground = UncheckedBackgroundOrange;
 						break;
 						}
@@ -128,8 +129,8 @@ namespace Dominator.Windows10
 		{
 			var sw = new HorizontalToggleSwitch
 			{
-				UncheckedContent = "YES",
-				CheckedContent = "NO!",
+				UncheckedContent = L_YES,
+				CheckedContent = L_NO_,
 				Margin = new Thickness(DefaultMargin, DefaultMargin, 0, DefaultMargin)
 			};
 		
