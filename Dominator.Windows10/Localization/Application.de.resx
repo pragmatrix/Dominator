@@ -97,4 +97,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="M_Sorry___0__must_be_run_as_Administrator_" xml:space="preserve">
+    <value>Sorry, {0 muss als Administrator ausgeführt werden.</value>
+  </data>
+  <data name="M_Sorry___0_crashed" xml:space="preserve">
+    <value>Sorry, {0} wurde fehlerhaft beended. Bitte melden Sie den Fehler unter
+
+{1}
+
+Fehlermeldung::
+
+{2}</value>
+  </data>
+  <data name="M_No_support_for_command_lines_arguments_yet_" xml:space="preserve">
+    <value>Derzeit kein Support von Kommandozeilenoptionen!</value>
+  </data>
+  <data name="L_NO_" xml:space="preserve">
+    <value>NEIN!</value>
+  </data>
+  <data name="L_YES" xml:space="preserve">
+    <value>JA</value>
+  </data>
 </root>

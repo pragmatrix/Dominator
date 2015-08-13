@@ -8,19 +8,19 @@
       <group id="Resx">
         <trans-unit id="Resx/M_Service__0__is_not_installed_" translate="yes" xml:space="preserve">
           <source>Service {0} is not installed.</source>
-          <target state="new">Service {0} is not installed.</target>
+          <target state="translated">Dienst {0} ist nicht installiert.</target>
         </trans-unit>
         <trans-unit id="Resx/M_Service__0__is_installed__but_its_startup_option_is_not_configured_" translate="yes" xml:space="preserve">
           <source>Service {0} is installed, but its startup option is not configured.</source>
-          <target state="new">Service {0} is installed, but its startup option is not configured.</target>
+          <target state="translated">Dienst {0} ist installiert, aber wird nicht automatisch gestartet.</target>
         </trans-unit>
         <trans-unit id="Resx/M_Failed_to_stop_service__0_" translate="yes" xml:space="preserve">
           <source>Failed to stop service {0}</source>
-          <target state="new">Failed to stop service {0}</target>
+          <target state="translated">Fehler beim Anhalten von Dienst{0}</target>
         </trans-unit>
         <trans-unit id="Resx/M_Failed_to_start_service__0_" translate="yes" xml:space="preserve">
           <source>Failed to start service {0}</source>
-          <target state="new">Failed to start service {0}</target>
+          <target state="translated">Fehler beim Starten von Dienst {0}</target>
         </trans-unit>
       </group>
     </body>
