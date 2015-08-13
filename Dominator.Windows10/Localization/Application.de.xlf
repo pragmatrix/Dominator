@@ -8,7 +8,7 @@
       <group id="Resx">
         <trans-unit id="Resx/M_Sorry___0__must_be_run_as_Administrator_" translate="yes" xml:space="preserve">
           <source>Sorry, {0} must be run as Administrator.</source>
-          <target state="translated">Sorry, {0 muss als Administrator ausgeführt werden.</target>
+          <target state="translated">Sorry, {0} muss als Administrator ausgeführt werden.</target>
         </trans-unit>
         <trans-unit id="Resx/M_Sorry___0_crashed" translate="yes" xml:space="preserve">
           <source>Sorry, {0} crashed, please open an issue at
@@ -18,17 +18,17 @@
 Error Information:
 
 {2}</source>
-          <target state="translated">Sorry, {0} wurde fehlerhaft beended. Bitte melden Sie den Fehler unter
+          <target state="translated">Sorry, {0} wurde fehlerhaft beendet. Bitte melden Sie den Fehler unter
 
 {1}
 
-Fehlermeldung::
+Fehlermeldung:
 
 {2}</target>
         </trans-unit>
         <trans-unit id="Resx/M_No_support_for_command_lines_arguments_yet_" translate="yes" xml:space="preserve">
           <source>No support for command lines arguments yet!</source>
-          <target state="translated">Derzeit kein Support von Kommandozeilenoptionen!</target>
+          <target state="translated">Derzeit keine Unterstützung von Kommandozeilenoptionen!</target>
         </trans-unit>
         <trans-unit id="Resx/L_N_A" translate="yes" xml:space="preserve">
           <source>N/A</source>

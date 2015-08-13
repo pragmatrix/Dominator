@@ -224,15 +224,6 @@ namespace Dominator.Windows10.Settings.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No support for command lines arguments yet!.
-        /// </summary>
-        internal static string M_No_support_for_command_lines_arguments_yet_ {
-            get {
-                return ResourceManager.GetString("M_No_support_for_command_lines_arguments_yet_", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Option not found. Evil defaults may apply..
         /// </summary>
         internal static string M_Option_not_found__Evil_defaults_may_apply {

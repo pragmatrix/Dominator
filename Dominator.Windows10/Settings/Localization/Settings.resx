@@ -198,7 +198,4 @@
   <data name="M_Service_status_is_not_recognized__but_safe_to_change" xml:space="preserve">
     <value>Service status is not recognized, but safe to change.</value>
   </data>
-  <data name="M_No_support_for_command_lines_arguments_yet_" xml:space="preserve">
-    <value>No support for command lines arguments yet!</value>
-  </data>
 </root>

@@ -121,7 +121,7 @@
     <value>Datenschutz</value>
   </data>
   <data name="E_Allow_this_PC_to_connect_to_Microsoft_telemetry_servers" xml:space="preserve">
-    <value>PC erlauben, sich mit Microsoft Telemetrie-Servern zu zu verbinden</value>
+    <value>PC erlauben, sich mit Microsoft Telemetrie-Servern zu verbinden</value>
   </data>
   <data name="T_Location" xml:space="preserve">
     <value>Standort</value>
@@ -133,13 +133,13 @@
     <value>Microsoft Telemetrie-Datenerfassung</value>
   </data>
   <data name="E_Log_keystrokes" xml:space="preserve">
-    <value>Protokolldatei Tastatureingaben (WAP Push Message Routing Service)</value>
+    <value>Protokollierung von Tastatureingaben (WAP Push Message Routing Service)</value>
   </data>
   <data name="E_Ask_for_feedback" xml:space="preserve">
     <value>Feedback anfordern</value>
   </data>
   <data name="E_Send_data_about_functional_issues_to_Microsoft" xml:space="preserve">
-    <value>Senden Sie Daten über Probleme an Microsoft (Tracking Diagnosedienst)</value>
+    <value>Daten über Probleme an Microsoft senden (Tracking Diagnosedienst)</value>
   </data>
   <data name="E_Let_websites_provide_locally_relevant_content_by_accessing_my_language_list" xml:space="preserve">
     <value>Websites den Zugriff auf die eigene Sprachliste gestatten, um die Anzeige lokal relevanter Inhalte zu ermöglichen</value>
@@ -159,9 +159,6 @@
   <data name="M_Service_is_not_installed" xml:space="preserve">
     <value>Dienst ist nicht installiert.</value>
   </data>
-  <data name="M_No_support_for_command_lines_arguments_yet_" xml:space="preserve">
-    <value>Derzeit kein Support von Kommandozeilenoptionen!</value>
-  </data>
   <data name="M_Service_status_is_not_recognized__but_safe_to_change" xml:space="preserve">
     <value>Dienststatus wird nicht erkannt, aber kann problemlos geändert werden.</value>
   </data>
@@ -172,7 +169,7 @@
     <value>Option unbekannt, nachteilige Standardwerte können vorliegen.</value>
   </data>
   <data name="E_Manage_all_privacy_related_settings_in_one_place" xml:space="preserve">
-    <value>Verwaltung aller Datenschutz-Einstellungen an einem Ort</value>
+    <value>Verwalte alle Datenschutz-Einstellungen an einem Ort</value>
   </data>
   <data name="E_Get_updates_from_or_send_updates_to_other_PCs" xml:space="preserve">
     <value>Abrufen von Updates von oder Senden von Updates an andere PCs</value>

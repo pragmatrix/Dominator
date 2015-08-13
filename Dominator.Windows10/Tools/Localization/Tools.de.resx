@@ -101,10 +101,10 @@
     <value>Dienst {0} ist nicht installiert.</value>
   </data>
   <data name="M_Service__0__is_installed__but_its_startup_option_is_not_configured_" xml:space="preserve">
-    <value>Dienst {0} ist installiert, aber wird nicht automatisch gestartet.</value>
+    <value>Dienst {0} ist installiert, aber die Starteinstellung ist nicht konfiguriert.</value>
   </data>
   <data name="M_Failed_to_stop_service__0_" xml:space="preserve">
-    <value>Fehler beim Anhalten von Dienst{0}</value>
+    <value>Fehler beim Anhalten von Dienst {0}</value>
   </data>
   <data name="M_Failed_to_start_service__0_" xml:space="preserve">
     <value>Fehler beim Starten von Dienst {0}</value>

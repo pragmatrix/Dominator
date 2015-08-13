@@ -12,7 +12,7 @@
         </trans-unit>
         <trans-unit id="Resx/E_Allow_this_PC_to_connect_to_Microsoft_telemetry_servers" translate="yes" xml:space="preserve">
           <source>Allow this PC to connect to Microsoft telemetry servers</source>
-          <target state="translated">PC erlauben, sich mit Microsoft Telemetrie-Servern zu zu verbinden</target>
+          <target state="translated">PC erlauben, sich mit Microsoft Telemetrie-Servern zu verbinden</target>
         </trans-unit>
         <trans-unit id="Resx/T_Location" translate="yes" xml:space="preserve">
           <source>Location</source>
@@ -28,7 +28,7 @@
         </trans-unit>
         <trans-unit id="Resx/E_Log_keystrokes" translate="yes" xml:space="preserve">
           <source>Log keystrokes (WAP Push Message Routing Service)</source>
-          <target state="translated">Protokolldatei Tastatureingaben (WAP Push Message Routing Service)</target>
+          <target state="translated">Protokollierung von Tastatureingaben (WAP Push Message Routing Service)</target>
         </trans-unit>
         <trans-unit id="Resx/E_Ask_for_feedback" translate="yes" xml:space="preserve">
           <source>Ask for feedback</source>
@@ -36,7 +36,7 @@
         </trans-unit>
         <trans-unit id="Resx/E_Send_data_about_functional_issues_to_Microsoft" translate="yes" xml:space="preserve">
           <source>Send data about functional issues to Microsoft (Diagnostics Tracking Service)</source>
-          <target state="translated">Senden Sie Daten über Probleme an Microsoft (Tracking Diagnosedienst)</target>
+          <target state="translated">Daten über Probleme an Microsoft senden (Tracking Diagnosedienst)</target>
         </trans-unit>
         <trans-unit id="Resx/E_Let_websites_provide_locally_relevant_content_by_accessing_my_language_list" translate="yes" xml:space="preserve">
           <source>Let websites provide locally relevant content by accessing my language list</source>
@@ -62,10 +62,6 @@
           <source>Service is not installed.</source>
           <target state="translated">Dienst ist nicht installiert.</target>
         </trans-unit>
-        <trans-unit id="Resx/M_No_support_for_command_lines_arguments_yet_" translate="yes" xml:space="preserve">
-          <source>No support for command lines arguments yet!</source>
-          <target state="translated">Derzeit kein Support von Kommandozeilenoptionen!</target>
-        </trans-unit>
         <trans-unit id="Resx/M_Service_status_is_not_recognized__but_safe_to_change" translate="yes" xml:space="preserve">
           <source>Service status is not recognized, but safe to change.</source>
           <target state="translated">Dienststatus wird nicht erkannt, aber kann problemlos geändert werden.</target>
@@ -80,7 +76,7 @@
         </trans-unit>
         <trans-unit id="Resx/E_Manage_all_privacy_related_settings_in_one_place" translate="yes" xml:space="preserve">
           <source>Manage all privacy related settings in one place</source>
-          <target state="translated">Verwaltung aller Datenschutz-Einstellungen an einem Ort</target>
+          <target state="translated">Verwalte alle Datenschutz-Einstellungen an einem Ort</target>
         </trans-unit>
         <trans-unit id="Resx/E_Get_updates_from_or_send_updates_to_other_PCs" translate="yes" xml:space="preserve">
           <source>Get updates from or send updates to other PCs</source>
