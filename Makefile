@@ -18,6 +18,16 @@ package_files=Dominator.Net.dll ToggleSwitch.dll "Windows 10 Dominator.exe" "Win
 
 builddir=${package}_build
 
+appdir=Dominator.Windows10
+toolsdir=${appdir}/Tools
+settingsdir=${appdir}/Settings
+
+.PHONY: import-de
+import-de:
+	cp /tmp/${appdir}_Application.de.xlf ${appdir}/Localization/Application.de.xlf
+	cp /tmp/${appdir}_Tools.de.xlf ${toolsdir}/Localization/Tools.de.xlf
+	cp /tmp/${appdir}_Settings.de.xlf ${settingsdir}/Localization/Settings.de.xlf
+
 .PHONY: package
 package:
 	rm -rf /tmp/${builddir}
