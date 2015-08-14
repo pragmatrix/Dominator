@@ -9,17 +9,24 @@ namespace Dominator.Windows10.Settings
 		public static GroupBuilder PrivacySettings(this GroupBuilder dsl) => dsl
 			.BeginGroup(T_Privacy)
 			.Explanation(E_Settings_that_protect_your_privacy)
-				.BeginItem(E_Let_apps_use_my_advertising_ID)
-				.RegistryUserValueWithHKLMDefault(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo", "Enabled", 0, 1)
+
+				// Express Settings: the Search key exists in HKLM, but nothing is in there, and changing BingSearchEnabled does not have an
+				// effect when the user key is not set.
+				.BeginItem(E_Provide_web_results_when_I_use_the_Windows_search_bar)
+				.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Search", "BingSearchEnabled", 0, 1, optionNotFound: DominatorState.Submissive())
 				.End()
 
-				.BeginItem(E_Send_Microsoft_info_about_how_I_write)
-				.RegistryUserValueWithHKLMDefault(@"SOFTWARE\Microsoft\Input\TIPC", "Enabled", 0, 1)
+				.BeginItem(E_Let_apps_use_my_advertising_ID)
+				.RegistryUserValueWithHKLMDefault(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo", "Enabled", 0, 1)
 				.End()
 
 				// no HKLM backing field, is on by default on Express Settings and Custom.
 				.BeginItem(E_Let_websites_provide_locally_relevant_content_by_accessing_my_language_list)
 				.RegistryValue(@"HKEY_CURRENT_USER\Control Panel\International\User Profile", "HttpAcceptLanguageOptOut", 1, 0, optionNotFound: DominatorState.Submissive())
+				.End()
+
+				.BeginItem(E_Send_Microsoft_info_about_how_I_write)
+				.RegistryUserValueWithHKLMDefault(@"SOFTWARE\Microsoft\Input\TIPC", "Enabled", 0, 1)
 				.End()
 
 				.BeginItem(E_Send_data_about_functional_issues_to_Microsoft)
@@ -59,12 +66,6 @@ namespace Dominator.Windows10.Settings
 					.BeginItem(E_Allow_apps_and_services_to_request_your_location)
 					.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}", "Value", "Deny", "Allow")
 					.End()
-				.End()
-
-				// Express Settings: the Search key exists in HKLM, but nothing is in there, and changing BingSearchEnabled does not have an
-				// effect when the user key is not set.
-				.BeginItem(E_Provide_web_results_when_I_use_the_Windows_search_bar)
-				.RegistryValue(@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Search", "BingSearchEnabled", 0, 1, optionNotFound: DominatorState.Submissive())
 				.End()
 
 			.End();
