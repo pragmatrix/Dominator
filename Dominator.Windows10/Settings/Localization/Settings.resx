@@ -198,4 +198,7 @@
   <data name="M_Service_status_is_not_recognized__but_safe_to_change" xml:space="preserve">
     <value>Service status is not recognized, but safe to change.</value>
   </data>
+  <data name="M_On_Windows_10_Home_or_Professional__telemetry_can_not_be_completely_disabled" xml:space="preserve">
+    <value>On Windows 10 Home or Professional, telemetry can not be completely disabled, so you should block the telemetry hosts with the option below.</value>
+  </data>
 </root>

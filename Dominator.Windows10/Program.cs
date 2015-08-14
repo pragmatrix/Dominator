@@ -19,6 +19,7 @@ namespace Dominator.Windows10
 		[STAThread]
 		public static int Main(string[] args)
 		{
+			// Thread.CurrentThread.CurrentUICulture = new CultureInfo("de");
 			try
 			{
 				if (!TryRunAsAdministrator())

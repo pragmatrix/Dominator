@@ -224,6 +224,15 @@ namespace Dominator.Windows10.Settings.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to On Windows 10 Home or Professional, telemetry can not be completely disabled, so you should block the telemetry hosts with the option below..
+        /// </summary>
+        internal static string M_On_Windows_10_Home_or_Professional__telemetry_can_not_be_completely_disabled {
+            get {
+                return ResourceManager.GetString("M_On_Windows_10_Home_or_Professional__telemetry_can_not_be_completely_disabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Option not found. Evil defaults may apply..
         /// </summary>
         internal static string M_Option_not_found__Evil_defaults_may_apply {

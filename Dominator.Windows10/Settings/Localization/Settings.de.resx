@@ -198,4 +198,8 @@
   <data name="E_Allow_apps_and_services_to_request_your_location" xml:space="preserve">
     <value>Apps und Diensten erlauben, auf meine Standortdaten zuzugreifen</value>
   </data>
+  <data name="M_On_Windows_10_Home_or_Professional__telemetry_can_not_be_completely_disabled" xml:space="preserve">
+    <value>Bei Windows 10 Home or Professional kann die Telemetrie nicht komplett ausgeschaltet werden, deswegen sollten die Telemetrie-Server mit der nächsten Option blockiert werden.</value>
+    <comment></comment>
+  </data>
 </root>
