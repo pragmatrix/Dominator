@@ -12,6 +12,11 @@ namespace Dominator.Windows10.Settings
 		static readonly string OptionNotFoundMessage = M_Option_not_found__Evil_defaults_may_apply;
 		static readonly string ValueNotRecognizedMessage = M_Option_value_is__0__and_probably_safe_to_change;
 
+		static ItemBuilder WarnWhenDominated(this ItemBuilder dsl, string warning)
+		{
+			return dsl.ChainGetter(state => state.Kind != DominatorStateKind.Dominated ? state : state.WithMessage(warning));
+		}
+
 		static ItemBuilder RegistryValue(this ItemBuilder dsl, string key, string valueName, int dominatedValue, int submissiveValue, DominatorState? optionNotFound = null, Func<int, bool> alsoTreatAsSubmissive = null)
 		{
 			Func<int, bool> isTreatedAsSubmissive = v => v == submissiveValue || (alsoTreatAsSubmissive != null && alsoTreatAsSubmissive(v));

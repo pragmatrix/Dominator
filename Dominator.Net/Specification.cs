@@ -23,6 +23,11 @@ namespace Dominator.Net
 		public static DominatorState Submissive(string message = "") => new DominatorState(DominatorStateKind.Submissive, message);
 		public static DominatorState Dominated(string message = "") => new DominatorState(DominatorStateKind.Dominated, message);
 		public static DominatorState Indetermined(string message) => new DominatorState(DominatorStateKind.Indetermined , message );
+
+		public DominatorState WithMessage(string message)
+		{
+			return new DominatorState(Kind, message);
+		}
 	}
 
 	public enum DominationAction

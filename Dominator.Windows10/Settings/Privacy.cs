@@ -54,6 +54,7 @@ namespace Dominator.Windows10.Settings
 					// Value is set to 3 in Express Settings and 2 in Custom Settings. Key always exists.
 					.BeginItem(E_Collect_telemetry_data)
 					.RegistryValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection", "AllowTelemetry", 0, 1, alsoTreatAsSubmissive: v => v >= 1 && v <=3)
+					.WarnWhenDominated("On Windows 10 Home or Professional, telemetry can not be completely disabled, so it is recommended to block the telemetry hosts with the option below.")
 					.End()
 
 					.BeginItem(E_Allow_this_PC_to_connect_to_Microsoft_telemetry_servers)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Dominator.Net
 {
@@ -95,10 +96,24 @@ namespace Dominator.Net
 
 		public ItemBuilder Getter(Func<DominatorState> getter)
 		{
+			Debug.Assert(_getter_ == null, "Getter can not set twice, use ChainGetter instead");
 			_getter_ = getter;
 			return this;
 		}
 
+		public ItemBuilder ChainGetter(Func<DominatorState, DominatorState> getter)
+		{
+			Debug.Assert(_getter_ != null, "There must be a Getter() registered, before a call to ChainGetter()");
+
+			var previous = _getter_;
+			_getter_ = () =>
+			{
+				var state = previous();
+				return getter(state);
+			};
+			return this;
+		}
+		
 		public GroupBuilder End()
 		{
 			var dominator = Specification();
@@ -121,7 +136,10 @@ namespace Dominator.Net
 
 	sealed class Item : IDominatorItem
 	{
-		internal Item(DominatorDescription description, Func<DominatorState> getter, Action<DominationAction> setter)
+		internal Item(
+			DominatorDescription description, 
+			Func<DominatorState> getter, 
+			Action<DominationAction> setter)
 		{
 			Description = description;
 			_getter = getter;
