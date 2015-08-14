@@ -51,8 +51,14 @@ namespace Dominator.Windows10
 			var description = CreateDescription(item.Description, forGroup: false);
 			panel.Children.Add(description);
 
-			var switchPanel = new DockPanel();
+			var switchPanel = new DockPanel
+			{
+				Margin = new Thickness(0, DefaultMargin, 0, 0)
+			};
+
 			var sw = createSwitch();
+			sw.VerticalAlignment = VerticalAlignment.Top;
+			
 			switchPanel.Children.Add(sw);
 			// we don't want to use actual Label controls, because they parse '_' underscores as
 			// Alt Key shortcuts.
@@ -131,7 +137,8 @@ namespace Dominator.Windows10
 			{
 				UncheckedContent = L_YES,
 				CheckedContent = L_NO_,
-				Margin = new Thickness(DefaultMargin, DefaultMargin, 0, DefaultMargin)
+				Margin = new Thickness(DefaultMargin, 0, 0, 0),
+				Padding = new Thickness(0)
 			};
 		
 			return sw;
