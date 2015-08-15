@@ -17,8 +17,8 @@ namespace Dominator.Net
 		readonly Func<DominatorState> _getter;
 		readonly Action<DominationAction> _setter;
 
-		public DominatorDescription Description
-		{ get; }
+		public DominatorDescription Description { get; }
+
 		public DominatorState GetState()
 		{
 			return _getter();
@@ -38,9 +38,8 @@ namespace Dominator.Net
 			Nested = nested;
 		}
 
-		public DominatorDescription Description
-		{ get; }
-		public IDominator[] Nested
-		{ get; }
+		public DominatorDescription Description { get; }
+
+		public IDominator[] Nested { get; }
 	}
 }
