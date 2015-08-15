@@ -190,7 +190,7 @@ namespace Dominator.Windows10
 					}
 				};
 				hPanel.Children.Add(explanationLabel);
-				var moreLink = createHyperlink("more...", description.More_.Value.Action, description.More_.Value.Info);
+				var moreLink = createHyperlink(M_more___, description.More_.Value.Action, description.More_.Value.Info);
 				moreLink.Margin = new Thickness(0, 0, 0, DefaultMargin);
 				moreLink.VerticalAlignment = VerticalAlignment.Bottom;
 				Grid.SetColumn(moreLink, 1);
@@ -230,7 +230,7 @@ namespace Dominator.Windows10
 				}
 			};
 
-            var tb = new TextBlock
+			var tb = new TextBlock
 			{
 				Inlines = { hl },
 			};

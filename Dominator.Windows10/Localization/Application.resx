@@ -122,4 +122,7 @@ Error Information:
   <data name="L_NO_" xml:space="preserve">
     <value>NO!</value>
   </data>
+  <data name="M_more___" xml:space="preserve">
+    <value>more...</value>
+  </data>
 </root>

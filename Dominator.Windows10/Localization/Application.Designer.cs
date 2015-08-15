@@ -88,6 +88,15 @@ namespace Dominator.Windows10.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to more....
+        /// </summary>
+        internal static string M_more___ {
+            get {
+                return ResourceManager.GetString("M_more___", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No support for command lines arguments yet!.
         /// </summary>
         internal static string M_No_support_for_command_lines_arguments_yet_ {

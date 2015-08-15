@@ -118,4 +118,7 @@ Fehlermeldung:
   <data name="L_YES" xml:space="preserve">
     <value>JA</value>
   </data>
+  <data name="M_more___" xml:space="preserve">
+    <value>mehr...</value>
+  </data>
 </root>
