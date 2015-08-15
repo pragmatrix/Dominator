@@ -201,4 +201,7 @@
   <data name="M_On_Windows_10_Home_or_Professional__telemetry_can_not_be_completely_disabled" xml:space="preserve">
     <value>On Windows 10 Home or Professional, telemetry can not be completely disabled, so you should block the telemetry hosts with the option below.</value>
   </data>
+  <data name="M_Show_the_system_s_hosts_file_" xml:space="preserve">
+    <value>Show the system's hosts file.</value>
+  </data>
 </root>

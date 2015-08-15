@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
-  <file datatype="xml" source-language="en-US" target-language="de" original="Settings.resx" tool-id="MultilingualAppToolkit" product-name="Dominator.Windows10" product-version="1.1.0.0" build-num="0">
+  <file datatype="xml" source-language="en-US" target-language="de" original="Settings.resx" tool-id="MultilingualAppToolkit" product-name="Dominator.Windows10" product-version="1.2.0.0" build-num="0">
     <header>
       <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="3.1.1250.0" tool-company="Microsoft" />
     </header>
@@ -68,7 +68,11 @@
         </trans-unit>
         <trans-unit id="Resx/M_On_Windows_10_Home_or_Professional__telemetry_can_not_be_completely_disabled" translate="yes" xml:space="preserve">
           <source>On Windows 10 Home or Professional, telemetry can not be completely disabled, so you should block the telemetry hosts with the option below.</source>
-          <target state="needs-review-translation">Bei Windows 10 Home or Professional kann die Telemetrie nicht komplett ausgeschaltet werden, deswegen sollten die Telemetrie-Server mit der nächsten Option blockiert werden.</target><note from="MultilingualUpdate" priority="2" annotates="source">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="needs-review-translation">Bei Windows 10 Home or Professional kann die Telemetrie nicht komplett ausgeschaltet werden, deswegen sollten die Telemetrie-Server mit der nächsten Option blockiert werden.</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note></trans-unit>
+        <trans-unit id="Resx/M_Show_the_system_s_hosts_file_" translate="yes" xml:space="preserve">
+          <source>Show the system's hosts file.</source>
+          <target state="translated">Hosts Datei des Systems anzeigen.</target>
         </trans-unit>
         <trans-unit id="Resx/M_Option_value_is__0__and_probably_safe_to_change" translate="yes" xml:space="preserve">
           <source>Option value is {0} and probably safe to change.</source>

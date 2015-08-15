@@ -269,6 +269,15 @@ namespace Dominator.Windows10.Settings.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show the system&apos;s hosts file..
+        /// </summary>
+        internal static string M_Show_the_system_s_hosts_file_ {
+            get {
+                return ResourceManager.GetString("M_Show_the_system_s_hosts_file_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Annoyances.
         /// </summary>
         internal static string T_Annoyances {

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using Dominator.Net;
 using Dominator.Windows10.Tools;
@@ -11,6 +13,19 @@ namespace Dominator.Windows10.Settings
 	{
 		static readonly string OptionNotFoundMessage = M_Option_not_found__Evil_defaults_may_apply;
 		static readonly string ValueNotRecognizedMessage = M_Option_value_is__0__and_probably_safe_to_change;
+
+		static ItemBuilder MoreInSettings(this ItemBuilder dsl, string setting)
+		{
+			return dsl.MoreAt(new Uri($"ms-settings:{setting}", UriKind.Absolute));
+		}
+
+		static ItemBuilder MoreAt(this ItemBuilder dsl, Uri uri)
+		{
+			return dsl.More(() =>
+			{
+				Process.Start(uri.ToString());
+			}, uri.ToString());
+		}
 
 		static ItemBuilder WarnWhenDominated(this ItemBuilder dsl, string warning)
 		{
@@ -152,7 +167,17 @@ namespace Dominator.Windows10.Settings
 						}
 						break;
 					}
-				});
+				})
+				.More(showHostsFile, M_Show_the_system_s_hosts_file_);
+		}
+
+		static void showHostsFile()
+		{
+			var fn = Path.GetTempFileName();
+			var fntxt = Path.ChangeExtension(fn, "txt");
+			File.Move(fn, fntxt);
+			File.Copy(HostsTools.SystemHostsFilePath, fntxt, overwrite: true);
+			Process.Start(fntxt);
 		}
 	}
 }

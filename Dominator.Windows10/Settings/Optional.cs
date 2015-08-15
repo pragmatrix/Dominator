@@ -12,6 +12,7 @@ namespace Dominator.Windows10.Settings
 			
 				.BeginItem(E_Turn_on_SmartScreen_Filter_to_check_web_content__URLs__that_Windows_Store_apps_use)
 				.RegistryUserValueWithHKLMDefault(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost", "EnableWebContentEvaluation", 0, 1)
+				.MoreInSettings("privacy")
 				.End()
 
 			.End();

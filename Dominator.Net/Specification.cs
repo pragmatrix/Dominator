@@ -36,16 +36,30 @@ namespace Dominator.Net
 		MakeSubmissive
 	}
 
+	public struct More
+	{
+		public More(Action action, string info = "")
+		{
+			Action = action;
+			Info = info;
+		}
+
+		public readonly Action Action;
+		public readonly string Info;
+	}
+
 	public struct DominatorDescription
 	{
-		public DominatorDescription(string title, string explanation)
+		public DominatorDescription(string title, string explanation, More? more_ = null)
 		{
 			Title = title;
 			Explanation = explanation;
+			More_ = more_;
 		}
 
 		public readonly string Title;
 		public readonly string Explanation;
+		public readonly More? More_;
 	}
 
 	public interface IDominator

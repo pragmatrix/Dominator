@@ -78,6 +78,7 @@ namespace Dominator.Net
 		readonly GroupBuilder _parent;
 		readonly string _title;
 		string _explanation_;
+		More? _more_;
 
 		Action<DominationAction> _setter_;
 		Func<DominatorState> _getter_;
@@ -85,6 +86,12 @@ namespace Dominator.Net
 		public ItemBuilder Explanation(string explanation)
 		{
 			_explanation_ = explanation;
+			return this;
+		}
+
+		public ItemBuilder More(Action action, string info = "")
+		{
+			_more_ = new More(action, info);
 			return this;
 		}
 
@@ -128,7 +135,7 @@ namespace Dominator.Net
 			if (_setter_ == null)
 				throw new InvalidOperationException($"{_title}: missing setter");
 
-			var description = new DominatorDescription(_title, _explanation_ ?? "");
+			var description = new DominatorDescription(_title, _explanation_ ?? "", _more_);
 			var dominator = new Item(description, _getter_, _setter_);
 			return dominator;
 		}

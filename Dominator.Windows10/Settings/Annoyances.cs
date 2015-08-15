@@ -17,6 +17,7 @@ namespace Dominator.Windows10.Settings
 
 				.BeginItem(E_Get_updates_from_or_send_updates_to_other_PCs)
 				.RegistryValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config", "DODownloadMode", 0, 3, optionNotFound: DominatorState.Submissive())
+				.MoreInSettings("windowsupdate")
 				.End()
 
 			.End();

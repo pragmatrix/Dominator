@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using Dominator.Net;
@@ -153,22 +154,93 @@ namespace Dominator.Windows10
 			return sw.UncheckedBackground;
 		}
 
-
 		public static UIElement CreateDescription(DominatorDescription description, bool forGroup)
 		{
 			var panel = new StackPanel();
 			var hasExplanation = description.Explanation != "";
-			var title = CreateTextBlock(description.Title);
-			// if there is no explanation, the title is the explanation
-			title.FontSize = hasExplanation || forGroup ? 22 : 16;
-			panel.Children.Add(title);
+			var showTitle = hasExplanation;
 
-			if (description.Explanation != "")
+			if (showTitle)
 			{
-				var explanationLabel = CreateTextBlock(description.Explanation);
+				var title = CreateTextBlock(description.Title);
+				title.FontSize = forGroup ? 22 : 16;
+				panel.Children.Add(title);
+			}
+
+			var explanation = hasExplanation ? description.Explanation : description.Title;
+
+			var explanationLabel = CreateTextBlock(explanation);
+			if (!showTitle)
+				explanationLabel.FontSize = forGroup ? 22 : 16;
+
+			if (description.More_ != null)
+			{
+				var hPanel = new Grid
+				{
+					ColumnDefinitions =
+					{
+						new ColumnDefinition
+						{
+							Width=new GridLength(1, GridUnitType.Star)
+						},
+						new ColumnDefinition
+						{
+							Width = GridLength.Auto
+						}
+					}
+				};
+				hPanel.Children.Add(explanationLabel);
+				var moreLink = createHyperlink("more...", description.More_.Value.Action, description.More_.Value.Info);
+				moreLink.Margin = new Thickness(0, 0, 0, DefaultMargin);
+				moreLink.VerticalAlignment = VerticalAlignment.Bottom;
+				Grid.SetColumn(moreLink, 1);
+				hPanel.Children.Add(moreLink);
+				panel.Children.Add(hPanel);
+			}
+			else
+			{
 				panel.Children.Add(explanationLabel);
 			}
+
 			return panel;
+		}
+
+		static TextBlock createHyperlink(string text, Action action, string info)
+		{
+			var hl = new Hyperlink
+			{
+				Inlines =
+				{
+					new Run
+					{
+						Text = text
+					}
+				}
+			};
+
+			hl.Click += (sender, args) =>
+			{
+				try
+				{
+					action();
+				}
+				catch (Exception)
+				{
+					// ignored
+				}
+			};
+
+            var tb = new TextBlock
+			{
+				Inlines = { hl },
+			};
+
+			if (info != "")
+			{
+				tb.ToolTip = info;
+			}
+
+			return tb;
 		}
 
 		public static TextBlock CreateTextBlock(string text)
