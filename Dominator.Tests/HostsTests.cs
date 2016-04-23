@@ -16,7 +16,7 @@ namespace Dominator.Tests
 			Assert.That(hosts.Length, Is.EqualTo(90));
 		}
 
-		// note NCrunch seem to add BOMs to the text files :(, so we
+		// note NCrunch seems to add BOMs to the text files :(, so we
 		// ignore this test for now and run it manually with R#.
 		[Test, Ignore]
 		public void readingAndWritingHostsFileDoesNotChangeIt()
