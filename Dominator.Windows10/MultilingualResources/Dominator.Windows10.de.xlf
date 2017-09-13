@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="de" original="DOMINATOR.WINDOWS10/TOOLS/LOCALIZATION/TOOLS.RESX" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6810.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="DOMINATOR.WINDOWS10/TOOLS/LOCALIZATION/TOOLS.RESX" datatype="resx">
+        <trans-unit id="M_Service__0__is_not_installed_" translate="yes" xml:space="preserve">
+          <source>Service {0} is not installed.</source>
+          <target state="translated">Dienst {0} ist nicht installiert.</target>
+        </trans-unit>
+        <trans-unit id="M_Service__0__is_installed__but_its_startup_option_is_not_configured_" translate="yes" xml:space="preserve">
+          <source>Service {0} is installed, but its startup option is not configured.</source>
+          <target state="translated">Dienst {0} ist installiert, aber die Starteinstellung ist nicht konfiguriert.</target>
+        </trans-unit>
+        <trans-unit id="M_Failed_to_stop_service__0_" translate="yes" xml:space="preserve">
+          <source>Failed to stop service {0}</source>
+          <target state="translated">Fehler beim Anhalten von Dienst {0}</target>
+        </trans-unit>
+        <trans-unit id="M_Failed_to_start_service__0_" translate="yes" xml:space="preserve">
+          <source>Failed to start service {0}</source>
+          <target state="translated">Fehler beim Starten von Dienst {0}</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+  <file datatype="xml" source-language="en-US" target-language="de" original="DOMINATOR.WINDOWS10/LOCALIZATION/APPLICATION.RESX" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6810.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="DOMINATOR.WINDOWS10/LOCALIZATION/APPLICATION.RESX" datatype="resx">
+        <trans-unit id="M_Sorry___0__must_be_run_as_Administrator_" translate="yes" xml:space="preserve">
+          <source>Sorry, {0} must be run as Administrator.</source>
+          <target state="translated">Sorry, {0} muss als Administrator ausgeführt werden.</target>
+        </trans-unit>
+        <trans-unit id="M_Sorry___0_crashed" translate="yes" xml:space="preserve">
+          <source>Sorry, {0} crashed, please open an issue at
+
+{1}
+
+Error Information:
+
+{2}</source>
+          <target state="translated">Sorry, {0} wurde fehlerhaft beendet. Bitte melden Sie den Fehler unter
+
+{1}
+
+Fehlermeldung:
+
+{2}</target>
+        </trans-unit>
+        <trans-unit id="M_No_support_for_command_lines_arguments_yet_" translate="yes" xml:space="preserve">
+          <source>No support for command lines arguments yet!</source>
+          <target state="translated">Derzeit keine Unterstützung von Kommandozeilenoptionen!</target>
+        </trans-unit>
+        <trans-unit id="L_YES" translate="yes" xml:space="preserve">
+          <source>YES</source>
+          <target state="translated">JA</target>
+        </trans-unit>
+        <trans-unit id="L_N_A" translate="yes" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="L_NO_" translate="yes" xml:space="preserve">
+          <source>NO!</source>
+          <target state="translated">NEIN!</target>
+        </trans-unit>
+        <trans-unit id="M_more___" translate="yes" xml:space="preserve">
+          <source>more...</source>
+          <target state="translated">mehr...</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+  <file datatype="xml" source-language="en-US" target-language="de" original="DOMINATOR.WINDOWS10/SETTINGS/LOCALIZATION/SETTINGS.RESX" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6810.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="DOMINATOR.WINDOWS10/SETTINGS/LOCALIZATION/SETTINGS.RESX" datatype="resx">
+        <trans-unit id="T_Privacy" translate="yes" xml:space="preserve">
+          <source>Privacy</source>
+          <target state="translated">Datenschutz</target>
+        </trans-unit>
+        <trans-unit id="E_Settings_that_protect_your_privacy" translate="yes" xml:space="preserve">
+          <source>Settings that protect your privacy</source>
+          <target state="translated">Einstellungen, die Ihre Privatsphäre schützen</target>
+        </trans-unit>
+        <trans-unit id="E_Let_apps_use_my_advertising_ID" translate="yes" xml:space="preserve">
+          <source>Let apps use my advertising ID</source>
+          <target state="translated">Apps dürfen meine Werbungs-ID verwenden</target>
+        </trans-unit>
+        <trans-unit id="E_Send_Microsoft_info_about_how_I_write" translate="yes" xml:space="preserve">
+          <source>Send Microsoft info about how I write</source>
+          <target state="translated">Informationen zu meinem Schreibverhalten an Microsoft senden</target>
+        </trans-unit>
+        <trans-unit id="E_Let_websites_provide_locally_relevant_content_by_accessing_my_language_list" translate="yes" xml:space="preserve">
+          <source>Let websites provide locally relevant content by accessing my language list</source>
+          <target state="translated">Websites den Zugriff auf die eigene Sprachliste gestatten, um die Anzeige lokal relevanter Inhalte zu ermöglichen</target>
+        </trans-unit>
+        <trans-unit id="E_Send_data_about_functional_issues_to_Microsoft" translate="yes" xml:space="preserve">
+          <source>Send data about functional issues to Microsoft (Diagnostics Tracking Service)</source>
+          <target state="translated">Daten über Probleme an Microsoft senden (Tracking Diagnosedienst)</target>
+        </trans-unit>
+        <trans-unit id="E_Ask_for_feedback" translate="yes" xml:space="preserve">
+          <source>Ask for feedback</source>
+          <target state="translated" state-qualifier="mt-suggestion">Feedback anfordern</target>
+        </trans-unit>
+        <trans-unit id="E_Log_keystrokes" translate="yes" xml:space="preserve">
+          <source>Log keystrokes (WAP Push Message Routing Service)</source>
+          <target state="translated">Protokollierung von Tastatureingaben (WAP Push Message Routing Service)</target>
+        </trans-unit>
+        <trans-unit id="E_Microsoft_telemetry_data_collection" translate="yes" xml:space="preserve">
+          <source>Microsoft telemetry data collection</source>
+          <target state="translated">Microsoft Telemetrie-Datenerfassung</target>
+        </trans-unit>
+        <trans-unit id="E_Collect_telemetry_data" translate="yes" xml:space="preserve">
+          <source>Collect telemetry data</source>
+          <target state="translated">Telemetriedaten erfassen</target>
+        </trans-unit>
+        <trans-unit id="E_Allow_this_PC_to_connect_to_Microsoft_telemetry_servers" translate="yes" xml:space="preserve">
+          <source>Allow this PC to connect to Microsoft telemetry servers</source>
+          <target state="translated">PC erlauben, sich mit Microsoft Telemetrie-Servern zu verbinden</target>
+        </trans-unit>
+        <trans-unit id="T_Location" translate="yes" xml:space="preserve">
+          <source>Location</source>
+          <target state="translated">Standort</target>
+        </trans-unit>
+        <trans-unit id="E_Allow_apps_and_services_to_request_your_location" translate="yes" xml:space="preserve">
+          <source>Allow apps and services to request your location</source>
+          <target state="translated">Apps und Diensten erlauben, auf meine Standortdaten zuzugreifen</target>
+        </trans-unit>
+        <trans-unit id="E_Provide_web_results_when_I_use_the_Windows_search_bar" translate="yes" xml:space="preserve">
+          <source>Provide web results when I use the Windows search bar</source>
+          <target state="translated">Bei Verwendung der Windowssuche auch Webergebnisse einbeziehen</target>
+        </trans-unit>
+        <trans-unit id="T_Optional_Protections" translate="yes" xml:space="preserve">
+          <source>Optional Protections</source>
+          <target state="translated">Optionale Schutzmaßnahmen</target>
+        </trans-unit>
+        <trans-unit id="E_Some_of_them_are_actually_useful" translate="yes" xml:space="preserve">
+          <source>Some of them are actually useful</source>
+          <target state="translated">Einige davon sind tatsächlich nützlich</target>
+        </trans-unit>
+        <trans-unit id="E_Turn_on_SmartScreen_Filter_to_check_web_content__URLs__that_Windows_Store_apps_use" translate="yes" xml:space="preserve">
+          <source>Turn on SmartScreen Filter to check web content (URLs) that Windows Store apps use</source>
+          <target state="translated">SmartScreen-Filter einschalten, um von Windows Store-Apps verwendete Webinhalte (URLs) zu überprüfen.</target>
+        </trans-unit>
+        <trans-unit id="T_Annoyances" translate="yes" xml:space="preserve">
+          <source>Annoyances</source>
+          <target state="translated">Ärgernisse</target>
+        </trans-unit>
+        <trans-unit id="E_Settings_that_may_cause_annoying_consequences" translate="yes" xml:space="preserve">
+          <source>Settings that may cause annoying consequences</source>
+          <target state="translated">Einstellungen, die ärgerliche Folgen haben können</target>
+        </trans-unit>
+        <trans-unit id="E_Show_Skype_home_and_advertisements" translate="yes" xml:space="preserve">
+          <source>Show Skype home and advertisements</source>
+          <target state="translated">Skype-Startseite und Werbung anzeigen</target>
+        </trans-unit>
+        <trans-unit id="E_Get_updates_from_or_send_updates_to_other_PCs" translate="yes" xml:space="preserve">
+          <source>Get updates from or send updates to other PCs</source>
+          <target state="translated">Abrufen von Updates von oder Senden von Updates an andere PCs</target>
+        </trans-unit>
+        <trans-unit id="E_Manage_all_privacy_related_settings_in_one_place" translate="yes" xml:space="preserve">
+          <source>Manage all privacy related settings in one place</source>
+          <target state="translated">Verwalte alle Datenschutz-Einstellungen an einem Ort</target>
+        </trans-unit>
+        <trans-unit id="M_Option_not_found__Evil_defaults_may_apply" translate="yes" xml:space="preserve">
+          <source>Option not found. Evil defaults may apply.</source>
+          <target state="translated">Option unbekannt, nachteilige Standardwerte können vorliegen.</target>
+        </trans-unit>
+        <trans-unit id="M_Option_value_is__0__and_probably_safe_to_change" translate="yes" xml:space="preserve">
+          <source>Option value is {0} and probably safe to change.</source>
+          <target state="translated">Optionswert ist {0} und wahrscheinlich sicher zu ändern.</target>
+        </trans-unit>
+        <trans-unit id="T_Telemetry" translate="yes" xml:space="preserve">
+          <source>Telemetry</source>
+          <target state="translated">Telemetrie</target>
+        </trans-unit>
+        <trans-unit id="M_Service_is_not_installed" translate="yes" xml:space="preserve">
+          <source>Service is not installed.</source>
+          <target state="translated">Dienst ist nicht installiert.</target>
+        </trans-unit>
+        <trans-unit id="M_Service_status_is_not_recognized__but_safe_to_change" translate="yes" xml:space="preserve">
+          <source>Service status is not recognized, but safe to change.</source>
+          <target state="translated">Dienststatus wird nicht erkannt, aber kann problemlos geändert werden.</target>
+        </trans-unit>
+        <trans-unit id="M_On_Windows_10_Home_or_Professional__telemetry_can_not_be_completely_disabled" translate="yes" xml:space="preserve">
+          <source>On Windows 10 Home or Professional, telemetry can not be completely disabled, so you should block the telemetry hosts with the option below.</source>
+          <target state="needs-review-translation">Bei Windows 10 Home or Professional kann die Telemetrie nicht komplett ausgeschaltet werden, deswegen sollten die Telemetrie-Server mit der nächsten Option blockiert werden.</target>
+        </trans-unit>
+        <trans-unit id="M_Show_the_system_s_hosts_file_" translate="yes" xml:space="preserve">
+          <source>Show the system's hosts file.</source>
+          <target state="translated">Hosts Datei des Systems anzeigen.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

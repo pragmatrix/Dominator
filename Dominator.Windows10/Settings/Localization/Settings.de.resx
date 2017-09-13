@@ -1,110 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>
@@ -120,38 +15,74 @@
   <data name="T_Privacy" xml:space="preserve">
     <value>Datenschutz</value>
   </data>
+  <data name="E_Settings_that_protect_your_privacy" xml:space="preserve">
+    <value>Einstellungen, die Ihre Privatsphäre schützen</value>
+  </data>
+  <data name="E_Let_apps_use_my_advertising_ID" xml:space="preserve">
+    <value>Apps dürfen meine Werbungs-ID verwenden</value>
+  </data>
+  <data name="E_Send_Microsoft_info_about_how_I_write" xml:space="preserve">
+    <value>Informationen zu meinem Schreibverhalten an Microsoft senden</value>
+  </data>
+  <data name="E_Let_websites_provide_locally_relevant_content_by_accessing_my_language_list" xml:space="preserve">
+    <value>Websites den Zugriff auf die eigene Sprachliste gestatten, um die Anzeige lokal relevanter Inhalte zu ermöglichen</value>
+  </data>
+  <data name="E_Send_data_about_functional_issues_to_Microsoft" xml:space="preserve">
+    <value>Daten über Probleme an Microsoft senden (Tracking Diagnosedienst)</value>
+  </data>
+  <data name="E_Ask_for_feedback" xml:space="preserve">
+    <value>Feedback anfordern</value>
+  </data>
+  <data name="E_Log_keystrokes" xml:space="preserve">
+    <value>Protokollierung von Tastatureingaben (WAP Push Message Routing Service)</value>
+  </data>
+  <data name="E_Microsoft_telemetry_data_collection" xml:space="preserve">
+    <value>Microsoft Telemetrie-Datenerfassung</value>
+  </data>
+  <data name="E_Collect_telemetry_data" xml:space="preserve">
+    <value>Telemetriedaten erfassen</value>
+  </data>
   <data name="E_Allow_this_PC_to_connect_to_Microsoft_telemetry_servers" xml:space="preserve">
     <value>PC erlauben, sich mit Microsoft Telemetrie-Servern zu verbinden</value>
   </data>
   <data name="T_Location" xml:space="preserve">
     <value>Standort</value>
   </data>
-  <data name="E_Collect_telemetry_data" xml:space="preserve">
-    <value>Telemetriedaten erfassen</value>
+  <data name="E_Allow_apps_and_services_to_request_your_location" xml:space="preserve">
+    <value>Apps und Diensten erlauben, auf meine Standortdaten zuzugreifen</value>
   </data>
-  <data name="E_Microsoft_telemetry_data_collection" xml:space="preserve">
-    <value>Microsoft Telemetrie-Datenerfassung</value>
+  <data name="E_Provide_web_results_when_I_use_the_Windows_search_bar" xml:space="preserve">
+    <value>Bei Verwendung der Windowssuche auch Webergebnisse einbeziehen</value>
   </data>
-  <data name="E_Log_keystrokes" xml:space="preserve">
-    <value>Protokollierung von Tastatureingaben (WAP Push Message Routing Service)</value>
+  <data name="T_Optional_Protections" xml:space="preserve">
+    <value>Optionale Schutzmaßnahmen</value>
   </data>
-  <data name="E_Ask_for_feedback" xml:space="preserve">
-    <value>Feedback anfordern</value>
+  <data name="E_Some_of_them_are_actually_useful" xml:space="preserve">
+    <value>Einige davon sind tatsächlich nützlich</value>
   </data>
-  <data name="E_Send_data_about_functional_issues_to_Microsoft" xml:space="preserve">
-    <value>Daten über Probleme an Microsoft senden (Tracking Diagnosedienst)</value>
+  <data name="E_Turn_on_SmartScreen_Filter_to_check_web_content__URLs__that_Windows_Store_apps_use" xml:space="preserve">
+    <value>SmartScreen-Filter einschalten, um von Windows Store-Apps verwendete Webinhalte (URLs) zu überprüfen.</value>
   </data>
-  <data name="E_Let_websites_provide_locally_relevant_content_by_accessing_my_language_list" xml:space="preserve">
-    <value>Websites den Zugriff auf die eigene Sprachliste gestatten, um die Anzeige lokal relevanter Inhalte zu ermöglichen</value>
+  <data name="T_Annoyances" xml:space="preserve">
+    <value>Ärgernisse</value>
   </data>
-  <data name="E_Send_Microsoft_info_about_how_I_write" xml:space="preserve">
-    <value>Informationen zu meinem Schreibverhalten an Microsoft senden</value>
+  <data name="E_Settings_that_may_cause_annoying_consequences" xml:space="preserve">
+    <value>Einstellungen, die ärgerliche Folgen haben können</value>
   </data>
-  <data name="E_Let_apps_use_my_advertising_ID" xml:space="preserve">
-    <value>Apps dürfen meine Werbungs-ID verwenden</value>
+  <data name="E_Show_Skype_home_and_advertisements" xml:space="preserve">
+    <value>Skype-Startseite und Werbung anzeigen</value>
   </data>
-  <data name="E_Settings_that_protect_your_privacy" xml:space="preserve">
-    <value>Einstellungen, die Ihre Privatsphäre schützen</value>
+  <data name="E_Get_updates_from_or_send_updates_to_other_PCs" xml:space="preserve">
+    <value>Abrufen von Updates von oder Senden von Updates an andere PCs</value>
+  </data>
+  <data name="E_Manage_all_privacy_related_settings_in_one_place" xml:space="preserve">
+    <value>Verwalte alle Datenschutz-Einstellungen an einem Ort</value>
+  </data>
+  <data name="M_Option_not_found__Evil_defaults_may_apply" xml:space="preserve">
+    <value>Option unbekannt, nachteilige Standardwerte können vorliegen.</value>
+  </data>
+  <data name="M_Option_value_is__0__and_probably_safe_to_change" xml:space="preserve">
+    <value>Optionswert ist {0} und wahrscheinlich sicher zu ändern.</value>
   </data>
   <data name="T_Telemetry" xml:space="preserve">
     <value>Telemetrie</value>
@@ -162,45 +93,8 @@
   <data name="M_Service_status_is_not_recognized__but_safe_to_change" xml:space="preserve">
     <value>Dienststatus wird nicht erkannt, aber kann problemlos geändert werden.</value>
   </data>
-  <data name="M_Option_value_is__0__and_probably_safe_to_change" xml:space="preserve">
-    <value>Optionswert ist {0} und wahrscheinlich sicher zu ändern.</value>
-  </data>
-  <data name="M_Option_not_found__Evil_defaults_may_apply" xml:space="preserve">
-    <value>Option unbekannt, nachteilige Standardwerte können vorliegen.</value>
-  </data>
-  <data name="E_Manage_all_privacy_related_settings_in_one_place" xml:space="preserve">
-    <value>Verwalte alle Datenschutz-Einstellungen an einem Ort</value>
-  </data>
-  <data name="E_Get_updates_from_or_send_updates_to_other_PCs" xml:space="preserve">
-    <value>Abrufen von Updates von oder Senden von Updates an andere PCs</value>
-  </data>
-  <data name="E_Show_Skype_home_and_advertisements" xml:space="preserve">
-    <value>Skype-Startseite und Werbung anzeigen</value>
-  </data>
-  <data name="E_Settings_that_may_cause_annoying_consequences" xml:space="preserve">
-    <value>Einstellungen, die ärgerliche Folgen haben können</value>
-  </data>
-  <data name="T_Annoyances" xml:space="preserve">
-    <value>Ärgernisse</value>
-  </data>
-  <data name="E_Turn_on_SmartScreen_Filter_to_check_web_content__URLs__that_Windows_Store_apps_use" xml:space="preserve">
-    <value>SmartScreen-Filter einschalten, um von Windows Store-Apps verwendete Webinhalte (URLs) zu überprüfen.</value>
-  </data>
-  <data name="E_Some_of_them_are_actually_useful" xml:space="preserve">
-    <value>Einige davon sind tatsächlich nützlich</value>
-  </data>
-  <data name="E_Provide_web_results_when_I_use_the_Windows_search_bar" xml:space="preserve">
-    <value>Bei Verwendung der Windowssuche auch Webergebnisse einbeziehen</value>
-  </data>
-  <data name="T_Optional_Protections" xml:space="preserve">
-    <value>Optionale Schutzmaßnahmen</value>
-  </data>
-  <data name="E_Allow_apps_and_services_to_request_your_location" xml:space="preserve">
-    <value>Apps und Diensten erlauben, auf meine Standortdaten zuzugreifen</value>
-  </data>
   <data name="M_On_Windows_10_Home_or_Professional__telemetry_can_not_be_completely_disabled" xml:space="preserve">
     <value>Bei Windows 10 Home or Professional kann die Telemetrie nicht komplett ausgeschaltet werden, deswegen sollten die Telemetrie-Server mit der nächsten Option blockiert werden.</value>
-    <comment></comment>
   </data>
   <data name="M_Show_the_system_s_hosts_file_" xml:space="preserve">
     <value>Hosts Datei des Systems anzeigen.</value>
