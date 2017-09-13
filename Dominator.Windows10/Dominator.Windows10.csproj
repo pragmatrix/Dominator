@@ -184,7 +184,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <XliffResource Include="MultilingualResources\Dominator.Windows10.de.xlf" />
+    <XliffResource Include="MultilingualResources\Dominator.Windows10.de.xlf">
+      <SubType>Designer</SubType>
+    </XliffResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Localization\Application.de.resx" />
