@@ -37,7 +37,7 @@
     <value>Protokollieren der Tastatureingaben (WAP Push Message Routing Service)?</value>
   </data>
   <data name="E_Microsoft_telemetry_data_collection" xml:space="preserve">
-    <value>Microsoft Telemetrie-Datenerfassung?</value>
+    <value>Microsoft Telemetrie-Datenerfassung</value>
   </data>
   <data name="E_Collect_telemetry_data" xml:space="preserve">
     <value>Telemetriedaten erfassen?</value>

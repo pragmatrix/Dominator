@@ -114,7 +114,7 @@ Fehlermeldung:
         </trans-unit>
         <trans-unit id="E_Microsoft_telemetry_data_collection" translate="yes" xml:space="preserve">
           <source>Microsoft telemetry data collection</source>
-          <target state="translated">Microsoft Telemetrie-Datenerfassung?</target>
+          <target state="translated">Microsoft Telemetrie-Datenerfassung</target>
         </trans-unit>
         <trans-unit id="E_Collect_telemetry_data" translate="yes" xml:space="preserve">
           <source>Collect telemetry data?</source>
