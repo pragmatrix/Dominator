@@ -124,40 +124,40 @@
     <value>Settings that protect your privacy</value>
   </data>
   <data name="E_Let_apps_use_my_advertising_ID" xml:space="preserve">
-    <value>Let apps use my advertising ID</value>
+    <value>Let apps use my advertising ID?</value>
   </data>
   <data name="E_Send_Microsoft_info_about_how_I_write" xml:space="preserve">
-    <value>Send Microsoft info about how I write</value>
+    <value>Send Microsoft info about how I write?</value>
   </data>
   <data name="E_Let_websites_provide_locally_relevant_content_by_accessing_my_language_list" xml:space="preserve">
-    <value>Let websites provide locally relevant content by accessing my language list</value>
+    <value>Let websites provide locally relevant content by accessing my language list?</value>
   </data>
   <data name="E_Send_data_about_functional_issues_to_Microsoft" xml:space="preserve">
-    <value>Send data about functional issues to Microsoft (Diagnostics Tracking Service)</value>
+    <value>Send data about functional issues to Microsoft (Diagnostics Tracking Service)?</value>
   </data>
   <data name="E_Ask_for_feedback" xml:space="preserve">
-    <value>Ask for feedback</value>
+    <value>Ask for feedback?</value>
   </data>
   <data name="E_Log_keystrokes" xml:space="preserve">
-    <value>Log keystrokes (WAP Push Message Routing Service)</value>
+    <value>Log keystrokes (WAP Push Message Routing Service)?</value>
   </data>
   <data name="E_Microsoft_telemetry_data_collection" xml:space="preserve">
     <value>Microsoft telemetry data collection</value>
   </data>
   <data name="E_Collect_telemetry_data" xml:space="preserve">
-    <value>Collect telemetry data</value>
+    <value>Collect telemetry data?</value>
   </data>
   <data name="E_Allow_this_PC_to_connect_to_Microsoft_telemetry_servers" xml:space="preserve">
-    <value>Allow this PC to connect to Microsoft telemetry servers</value>
+    <value>Allow this PC to connect to Microsoft telemetry servers?</value>
   </data>
   <data name="T_Location" xml:space="preserve">
     <value>Location</value>
   </data>
   <data name="E_Allow_apps_and_services_to_request_your_location" xml:space="preserve">
-    <value>Allow apps and services to request your location</value>
+    <value>Allow apps and services to request your location?</value>
   </data>
   <data name="E_Provide_web_results_when_I_use_the_Windows_search_bar" xml:space="preserve">
-    <value>Provide web results when I use the Windows search bar</value>
+    <value>Provide web results when I use the Windows search bar?</value>
   </data>
   <data name="T_Optional_Protections" xml:space="preserve">
     <value>Optional Protections</value>
@@ -166,7 +166,7 @@
     <value>Some of them are actually useful</value>
   </data>
   <data name="E_Turn_on_SmartScreen_Filter_to_check_web_content__URLs__that_Windows_Store_apps_use" xml:space="preserve">
-    <value>Turn on SmartScreen Filter to check web content (URLs) that Windows Store apps use</value>
+    <value>Turn on SmartScreen Filter to check web content (URLs) that Windows Store apps use?</value>
   </data>
   <data name="T_Annoyances" xml:space="preserve">
     <value>Annoyances</value>
@@ -175,10 +175,10 @@
     <value>Settings that may cause annoying consequences</value>
   </data>
   <data name="E_Show_Skype_home_and_advertisements" xml:space="preserve">
-    <value>Show Skype home and advertisements</value>
+    <value>Show Skype home and advertisements?</value>
   </data>
   <data name="E_Get_updates_from_or_send_updates_to_other_PCs" xml:space="preserve">
-    <value>Get updates from or send updates to other PCs</value>
+    <value>Get updates from or send updates to other PCs?</value>
   </data>
   <data name="E_Manage_all_privacy_related_settings_in_one_place" xml:space="preserve">
     <value>Manage all privacy related settings in one place</value>
