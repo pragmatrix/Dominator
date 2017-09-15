@@ -19,40 +19,40 @@
     <value>Einstellungen, die Ihre Privatsphäre schützen</value>
   </data>
   <data name="E_Let_apps_use_my_advertising_ID" xml:space="preserve">
-    <value>Apps dürfen meine Werbungs-ID verwenden</value>
+    <value>Dürfen Apps meine Werbungs-ID verwenden?</value>
   </data>
   <data name="E_Send_Microsoft_info_about_how_I_write" xml:space="preserve">
-    <value>Informationen zu meinem Schreibverhalten an Microsoft senden</value>
+    <value>Informationen zu meinem Schreibverhalten an Microsoft senden?</value>
   </data>
   <data name="E_Let_websites_provide_locally_relevant_content_by_accessing_my_language_list" xml:space="preserve">
-    <value>Websites den Zugriff auf die eigene Sprachliste gestatten, um die Anzeige lokal relevanter Inhalte zu ermöglichen</value>
+    <value>Websites den Zugriff auf die eigene Sprachliste gestatten, um die Anzeige lokal relevanter Inhalte zu ermöglichen?</value>
   </data>
   <data name="E_Send_data_about_functional_issues_to_Microsoft" xml:space="preserve">
-    <value>Daten über Probleme an Microsoft senden (Tracking Diagnosedienst)</value>
+    <value>Daten über Probleme an Microsoft senden (Tracking Diagnosedienst)?</value>
   </data>
   <data name="E_Ask_for_feedback" xml:space="preserve">
-    <value>Feedback anfordern</value>
+    <value>Nach Feedback fragen?</value>
   </data>
   <data name="E_Log_keystrokes" xml:space="preserve">
-    <value>Protokollierung von Tastatureingaben (WAP Push Message Routing Service)</value>
+    <value>Protokollieren der Tastatureingaben (WAP Push Message Routing Service)?</value>
   </data>
   <data name="E_Microsoft_telemetry_data_collection" xml:space="preserve">
     <value>Microsoft Telemetrie-Datenerfassung</value>
   </data>
   <data name="E_Collect_telemetry_data" xml:space="preserve">
-    <value>Telemetriedaten erfassen</value>
+    <value>Telemetriedaten erfassen?</value>
   </data>
   <data name="E_Allow_this_PC_to_connect_to_Microsoft_telemetry_servers" xml:space="preserve">
-    <value>PC erlauben, sich mit Microsoft Telemetrie-Servern zu verbinden</value>
+    <value>PC erlauben, sich mit Microsoft Telemetrie-Servern zu verbinden?</value>
   </data>
   <data name="T_Location" xml:space="preserve">
     <value>Standort</value>
   </data>
   <data name="E_Allow_apps_and_services_to_request_your_location" xml:space="preserve">
-    <value>Apps und Diensten erlauben, auf meine Standortdaten zuzugreifen</value>
+    <value>Apps und Diensten erlauben, auf meine Standortdaten zuzugreifen?</value>
   </data>
   <data name="E_Provide_web_results_when_I_use_the_Windows_search_bar" xml:space="preserve">
-    <value>Bei Verwendung der Windowssuche auch Webergebnisse einbeziehen</value>
+    <value>Bei Verwendung der Windowssuche auch Webergebnisse einbeziehen?</value>
   </data>
   <data name="T_Optional_Protections" xml:space="preserve">
     <value>Optionale Schutzmaßnahmen</value>
@@ -61,7 +61,7 @@
     <value>Einige davon sind tatsächlich nützlich</value>
   </data>
   <data name="E_Turn_on_SmartScreen_Filter_to_check_web_content__URLs__that_Windows_Store_apps_use" xml:space="preserve">
-    <value>SmartScreen-Filter einschalten, um von Windows Store-Apps verwendete Webinhalte (URLs) zu überprüfen.</value>
+    <value>SmartScreen-Filter einschalten, um von Windows Store-Apps verwendete Webinhalte (URLs) zu überprüfen?</value>
   </data>
   <data name="T_Annoyances" xml:space="preserve">
     <value>Ärgernisse</value>
@@ -70,10 +70,10 @@
     <value>Einstellungen, die ärgerliche Folgen haben können</value>
   </data>
   <data name="E_Show_Skype_home_and_advertisements" xml:space="preserve">
-    <value>Skype-Startseite und Werbung anzeigen</value>
+    <value>Skype-Startseite und Werbung anzeigen?</value>
   </data>
   <data name="E_Get_updates_from_or_send_updates_to_other_PCs" xml:space="preserve">
-    <value>Abrufen von Updates von oder Senden von Updates an andere PCs</value>
+    <value>Abrufen von Updates von oder Senden von Updates an andere PCs?</value>
   </data>
   <data name="E_Manage_all_privacy_related_settings_in_one_place" xml:space="preserve">
     <value>Verwalte alle Datenschutz-Einstellungen an einem Ort</value>

@@ -89,52 +89,52 @@ Fehlermeldung:
           <target state="translated">Einstellungen, die Ihre Privatsphäre schützen</target>
         </trans-unit>
         <trans-unit id="E_Let_apps_use_my_advertising_ID" translate="yes" xml:space="preserve">
-          <source>Let apps use my advertising ID</source>
-          <target state="translated">Apps dürfen meine Werbungs-ID verwenden</target>
+          <source>Let apps use my advertising ID?</source>
+          <target state="translated">Dürfen Apps meine Werbungs-ID verwenden?</target>
         </trans-unit>
         <trans-unit id="E_Send_Microsoft_info_about_how_I_write" translate="yes" xml:space="preserve">
-          <source>Send Microsoft info about how I write</source>
-          <target state="translated">Informationen zu meinem Schreibverhalten an Microsoft senden</target>
+          <source>Send Microsoft info about how I write?</source>
+          <target state="translated">Informationen zu meinem Schreibverhalten an Microsoft senden?</target>
         </trans-unit>
         <trans-unit id="E_Let_websites_provide_locally_relevant_content_by_accessing_my_language_list" translate="yes" xml:space="preserve">
-          <source>Let websites provide locally relevant content by accessing my language list</source>
-          <target state="translated">Websites den Zugriff auf die eigene Sprachliste gestatten, um die Anzeige lokal relevanter Inhalte zu ermöglichen</target>
+          <source>Let websites provide locally relevant content by accessing my language list?</source>
+          <target state="translated">Websites den Zugriff auf die eigene Sprachliste gestatten, um die Anzeige lokal relevanter Inhalte zu ermöglichen?</target>
         </trans-unit>
         <trans-unit id="E_Send_data_about_functional_issues_to_Microsoft" translate="yes" xml:space="preserve">
-          <source>Send data about functional issues to Microsoft (Diagnostics Tracking Service)</source>
-          <target state="translated">Daten über Probleme an Microsoft senden (Tracking Diagnosedienst)</target>
+          <source>Send data about functional issues to Microsoft (Diagnostics Tracking Service)?</source>
+          <target state="translated">Daten über Probleme an Microsoft senden (Tracking Diagnosedienst)?</target>
         </trans-unit>
         <trans-unit id="E_Ask_for_feedback" translate="yes" xml:space="preserve">
-          <source>Ask for feedback</source>
-          <target state="translated" state-qualifier="mt-suggestion">Feedback anfordern</target>
+          <source>Ask for feedback?</source>
+          <target state="translated">Nach Feedback fragen?</target>
         </trans-unit>
         <trans-unit id="E_Log_keystrokes" translate="yes" xml:space="preserve">
-          <source>Log keystrokes (WAP Push Message Routing Service)</source>
-          <target state="translated">Protokollierung von Tastatureingaben (WAP Push Message Routing Service)</target>
+          <source>Log keystrokes (WAP Push Message Routing Service)?</source>
+          <target state="translated">Protokollieren der Tastatureingaben (WAP Push Message Routing Service)?</target>
         </trans-unit>
         <trans-unit id="E_Microsoft_telemetry_data_collection" translate="yes" xml:space="preserve">
           <source>Microsoft telemetry data collection</source>
           <target state="translated">Microsoft Telemetrie-Datenerfassung</target>
         </trans-unit>
         <trans-unit id="E_Collect_telemetry_data" translate="yes" xml:space="preserve">
-          <source>Collect telemetry data</source>
-          <target state="translated">Telemetriedaten erfassen</target>
+          <source>Collect telemetry data?</source>
+          <target state="translated">Telemetriedaten erfassen?</target>
         </trans-unit>
         <trans-unit id="E_Allow_this_PC_to_connect_to_Microsoft_telemetry_servers" translate="yes" xml:space="preserve">
-          <source>Allow this PC to connect to Microsoft telemetry servers</source>
-          <target state="translated">PC erlauben, sich mit Microsoft Telemetrie-Servern zu verbinden</target>
+          <source>Allow this PC to connect to Microsoft telemetry servers?</source>
+          <target state="translated">PC erlauben, sich mit Microsoft Telemetrie-Servern zu verbinden?</target>
         </trans-unit>
         <trans-unit id="T_Location" translate="yes" xml:space="preserve">
           <source>Location</source>
           <target state="translated">Standort</target>
         </trans-unit>
         <trans-unit id="E_Allow_apps_and_services_to_request_your_location" translate="yes" xml:space="preserve">
-          <source>Allow apps and services to request your location</source>
-          <target state="translated">Apps und Diensten erlauben, auf meine Standortdaten zuzugreifen</target>
+          <source>Allow apps and services to request your location?</source>
+          <target state="translated">Apps und Diensten erlauben, auf meine Standortdaten zuzugreifen?</target>
         </trans-unit>
         <trans-unit id="E_Provide_web_results_when_I_use_the_Windows_search_bar" translate="yes" xml:space="preserve">
-          <source>Provide web results when I use the Windows search bar</source>
-          <target state="translated">Bei Verwendung der Windowssuche auch Webergebnisse einbeziehen</target>
+          <source>Provide web results when I use the Windows search bar?</source>
+          <target state="translated">Bei Verwendung der Windowssuche auch Webergebnisse einbeziehen?</target>
         </trans-unit>
         <trans-unit id="T_Optional_Protections" translate="yes" xml:space="preserve">
           <source>Optional Protections</source>
@@ -145,8 +145,8 @@ Fehlermeldung:
           <target state="translated">Einige davon sind tatsächlich nützlich</target>
         </trans-unit>
         <trans-unit id="E_Turn_on_SmartScreen_Filter_to_check_web_content__URLs__that_Windows_Store_apps_use" translate="yes" xml:space="preserve">
-          <source>Turn on SmartScreen Filter to check web content (URLs) that Windows Store apps use</source>
-          <target state="translated">SmartScreen-Filter einschalten, um von Windows Store-Apps verwendete Webinhalte (URLs) zu überprüfen.</target>
+          <source>Turn on SmartScreen Filter to check web content (URLs) that Windows Store apps use?</source>
+          <target state="translated">SmartScreen-Filter einschalten, um von Windows Store-Apps verwendete Webinhalte (URLs) zu überprüfen?</target>
         </trans-unit>
         <trans-unit id="T_Annoyances" translate="yes" xml:space="preserve">
           <source>Annoyances</source>
@@ -157,12 +157,12 @@ Fehlermeldung:
           <target state="translated">Einstellungen, die ärgerliche Folgen haben können</target>
         </trans-unit>
         <trans-unit id="E_Show_Skype_home_and_advertisements" translate="yes" xml:space="preserve">
-          <source>Show Skype home and advertisements</source>
-          <target state="translated">Skype-Startseite und Werbung anzeigen</target>
+          <source>Show Skype home and advertisements?</source>
+          <target state="translated">Skype-Startseite und Werbung anzeigen?</target>
         </trans-unit>
         <trans-unit id="E_Get_updates_from_or_send_updates_to_other_PCs" translate="yes" xml:space="preserve">
-          <source>Get updates from or send updates to other PCs</source>
-          <target state="translated">Abrufen von Updates von oder Senden von Updates an andere PCs</target>
+          <source>Get updates from or send updates to other PCs?</source>
+          <target state="translated">Abrufen von Updates von oder Senden von Updates an andere PCs?</target>
         </trans-unit>
         <trans-unit id="E_Manage_all_privacy_related_settings_in_one_place" translate="yes" xml:space="preserve">
           <source>Manage all privacy related settings in one place</source>
@@ -190,7 +190,7 @@ Fehlermeldung:
         </trans-unit>
         <trans-unit id="M_On_Windows_10_Home_or_Professional__telemetry_can_not_be_completely_disabled" translate="yes" xml:space="preserve">
           <source>On Windows 10 Home or Professional, telemetry can not be completely disabled, so you should block the telemetry hosts with the option below.</source>
-          <target state="needs-review-translation">Bei Windows 10 Home or Professional kann die Telemetrie nicht komplett ausgeschaltet werden, deswegen sollten die Telemetrie-Server mit der nächsten Option blockiert werden.</target>
+          <target state="translated">Bei Windows 10 Home or Professional kann die Telemetrie nicht komplett ausgeschaltet werden, deswegen sollten die Telemetrie-Server mit der nächsten Option blockiert werden.</target>
         </trans-unit>
         <trans-unit id="M_Show_the_system_s_hosts_file_" translate="yes" xml:space="preserve">
           <source>Show the system's hosts file.</source>
