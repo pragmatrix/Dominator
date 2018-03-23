@@ -8,7 +8,7 @@ A Windows desktop application that protects your privacy.
 
 License: [MIT]
 
-(c) 2017 Armin Sander
+(c) 2018 Armin Sander
 
 Application icon thankfully provided by [Icons8](https://icons8.com)
 
